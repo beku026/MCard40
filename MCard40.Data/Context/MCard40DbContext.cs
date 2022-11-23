@@ -1,4 +1,4 @@
-﻿using MCard40.Model.Configurations;
+﻿using MCard40.Data.Configurations;
 using MCard40.Model.Entity;
 using MCard40.Model.Identity;
 using Microsoft.EntityFrameworkCore;

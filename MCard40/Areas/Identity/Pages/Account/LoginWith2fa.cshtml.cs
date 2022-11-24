@@ -61,16 +61,16 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [StringLength(7, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(7, ErrorMessage = "Длина {0} должна составлять не менее {2} и не более {1} символов.", MinimumLength = 6)]
             [DataType(DataType.Text)]
-            [Display(Name = "Authenticator code")]
+            [Display(Name = "Код аутентификатора")]
             public string TwoFactorCode { get; set; }
 
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Display(Name = "Remember this machine")]
+            [Display(Name = "Помните эту машину")]
             public bool RememberMachine { get; set; }
         }
 
@@ -81,7 +81,7 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
 
             if (user == null)
             {
-                throw new InvalidOperationException($"Unable to load two-factor authentication user.");
+                throw new InvalidOperationException($"Не удается загрузить пользователя с двухфакторной аутентификацией.");
             }
 
             ReturnUrl = returnUrl;
@@ -102,7 +102,7 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
             if (user == null)
             {
-                throw new InvalidOperationException($"Unable to load two-factor authentication user.");
+                throw new InvalidOperationException($"Не удалось загрузить пользователя с двухфакторной аутентификацией.");
             }
 
             var authenticatorCode = Input.TwoFactorCode.Replace(" ", string.Empty).Replace("-", string.Empty);
@@ -123,8 +123,8 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
             }
             else
             {
-                _logger.LogWarning("Invalid authenticator code entered for user with ID '{UserId}'.", user.Id);
-                ModelState.AddModelError(string.Empty, "Invalid authenticator code.");
+                _logger.LogWarning("Введен неверный код аутентификатора для пользователя с идентификатором '{UserId}'.", user.Id);
+                ModelState.AddModelError(string.Empty, "Неверный код аутентификатора.");
                 return Page();
             }
         }

@@ -7,18 +7,19 @@ using MCard40.Data.Context;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("MCard40WebContextConnection") ?? throw new InvalidOperationException("Connection string 'MCard40WebContextConnection' not found.");
 
-builder.Services.AddDbContext<MCard40WebContext>(options =>
-    options.UseSqlServer(connectionString));
+//builder.Services.AddDbContext<MCard40WebContext>(options =>
+//    options.UseSqlServer(connectionString));
 
 //builder.Services.AddDefaultIdentity<MCardUser>(options => options.SignIn.RequireConfirmedAccount = true)
 //    .AddEntityFrameworkStores<MCard40WebContext>();
 
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<MCard40DbContext>(options => options.UseLazyLoadingProxies());
 builder.Services.AddRazorPages();
 
+builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<MCard40WebContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddIdentity<MCardUser, IdentityRole>()

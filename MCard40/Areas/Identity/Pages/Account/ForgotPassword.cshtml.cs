@@ -73,8 +73,8 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
 
                 await _emailSender.SendEmailAsync(
                     Input.Email,
-                    "Reset Password",
-                    $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    "Сброс пароля",
+                    $"Пожалуйста, сбросьте свой пароль с помощью <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Нажми меня</a>.");
 
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }

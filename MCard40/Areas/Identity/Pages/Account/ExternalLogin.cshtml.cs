@@ -102,13 +102,13 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (remoteError != null)
             {
-                ErrorMessage = $"Error from external provider: {remoteError}";
+                ErrorMessage = $"Ошибка от внешнего поставщика: {remoteError}";
                 return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
             }
             var info = await _signInManager.GetExternalLoginInfoAsync();
             if (info == null)
             {
-                ErrorMessage = "Error loading external login information.";
+                ErrorMessage = "Ошибка при загрузке внешней регистрационной информации.";
                 return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
             }
 
@@ -116,7 +116,7 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
             var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
             if (result.Succeeded)
             {
-                _logger.LogInformation("{Name} logged in with {LoginProvider} provider.", info.Principal.Identity.Name, info.LoginProvider);
+                _logger.LogInformation("{Name} вошел в систему с помощью {Login Provider} провайдера.", info.Principal.Identity.Name, info.LoginProvider);
                 return LocalRedirect(returnUrl);
             }
             if (result.IsLockedOut)
@@ -146,7 +146,7 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
             var info = await _signInManager.GetExternalLoginInfoAsync();
             if (info == null)
             {
-                ErrorMessage = "Error loading external login information during confirmation.";
+                ErrorMessage = "Ошибка при загрузке внешней регистрационной информации во время подтверждения.";
                 return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
             }
 
@@ -163,7 +163,7 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
                     result = await _userManager.AddLoginAsync(user, info);
                     if (result.Succeeded)
                     {
-                        _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
+                        _logger.LogInformation("Пользователь создал учетную запись, используя поставщика {Name}.", info.LoginProvider);
 
                         var userId = await _userManager.GetUserIdAsync(user);
                         var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -174,8 +174,8 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
                             values: new { area = "Identity", userId = userId, code = code },
                             protocol: Request.Scheme);
 
-                        await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                            $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                        await _emailSender.SendEmailAsync(Input.Email, "Подтвердите свой адрес электронной почты",
+                            $"Пожалуйста, подтвердите свою учетную запись с помощью <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Нажми меня</a>.");
 
                         // If account confirmation is required, we need to show the link if we don't have a real email sender
                         if (_userManager.Options.SignIn.RequireConfirmedAccount)
@@ -206,9 +206,9 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(MCardUser)}'. " +
-                    $"Ensure that '{nameof(MCardUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
-                    $"override the external login page in /Areas/Identity/Pages/Account/ExternalLogin.cshtml");
+                throw new InvalidOperationException($"Не удается создать экземпляр'{nameof(MCardUser)}'. " +
+                    $"Ensure that '{nameof(MCardUser)}' не является абстрактным классом и имеет конструктор без параметров, или альтернативно " +
+                    $"переопределить внешнюю страницу входа в /Areas/Identity/Pages/Account/ExternalLogin.cshtml");
             }
         }
 
@@ -216,7 +216,7 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
         {
             if (!_userManager.SupportsUserEmail)
             {
-                throw new NotSupportedException("The default UI requires a user store with email support.");
+                throw new NotSupportedException("Пользовательский интерфейс по умолчанию требует пользовательского хранилища с поддержкой по электронной почте.");
             }
             return (IUserEmailStore<MCardUser>)_userStore;
         }

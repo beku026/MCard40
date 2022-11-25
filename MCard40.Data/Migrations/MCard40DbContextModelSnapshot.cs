@@ -68,9 +68,16 @@ namespace MCard40.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Address_home")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(250)");
+
                     b.Property<string>("Address_job")
                         .IsRequired()
                         .HasColumnType("nvarchar(250)");
+
+                    b.Property<DateTime>("Age")
+                        .HasColumnType("date");
 
                     b.Property<string>("Degree")
                         .IsRequired()
@@ -79,14 +86,30 @@ namespace MCard40.Data.Migrations
                     b.Property<DateTime>("Experience")
                         .HasColumnType("date");
 
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(120)");
+
+                    b.Property<string>("ITN")
+                        .IsRequired()
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
+
                     b.Property<string>("Post")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Sex")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(10)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ITN")
+                        .IsUnique();
 
                     b.HasIndex("UserId");
 

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MCard40.Data.Migrations
 {
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,6 +27,11 @@ namespace MCard40.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    FullName = table.Column<string>(type: "nvarchar(120)", nullable: false),
+                    Age = table.Column<DateTime>(type: "date", nullable: false),
+                    Sex = table.Column<string>(type: "nvarchar(10)", nullable: false),
+                    ITN = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false),
+                    Address_home = table.Column<string>(type: "nvarchar(250)", nullable: false),
                     Post = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     Experience = table.Column<DateTime>(type: "date", nullable: false),
                     Address_job = table.Column<string>(type: "nvarchar(250)", nullable: false),
@@ -124,8 +129,8 @@ namespace MCard40.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    StartWork = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FinalWork = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    StartWork = table.Column<DateTime>(type: "time", nullable: false),
+                    FinalWork = table.Column<DateTime>(type: "time", nullable: false),
                     Employment_type = table.Column<int>(type: "int", nullable: false),
                     WeekId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -149,6 +154,12 @@ namespace MCard40.Data.Migrations
                 name: "IX_CardPages_PatientId",
                 table: "CardPages",
                 column: "PatientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Doctors_ITN",
+                table: "Doctors",
+                column: "ITN",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Doctors_UserId",

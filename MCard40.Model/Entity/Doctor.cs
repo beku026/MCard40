@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MCard40.Model.Enums;
 using MCard40.Model.Identity;
 
 namespace MCard40.Model.Entity;
@@ -10,6 +11,20 @@ public class Doctor
 {
     /// Id
     public int Id { get; set; }
+    /// ФИО 
+    public string FullName { get; set; }
+
+    /// День рождения
+    public DateTime Age { get; set; }
+
+    /// Пол 
+    public Sex Sex { get; set; }
+
+    /// ИНН 
+    public string ITN { get; set; }
+
+    /// Адрес дома
+    public string Address_home { get; set; }
 
     /// Должность
     public string Post { get; set; }

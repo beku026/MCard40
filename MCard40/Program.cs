@@ -1,8 +1,9 @@
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MCard40.Web.Data;
 using MCard40.Web.Areas.Identity.Data;
 using MCard40.Data.Context;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("MCard40WebContextConnection") ?? throw new InvalidOperationException("Connection string 'MCard40WebContextConnection' not found.");

@@ -27,6 +27,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Приватность</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Doctors" asp-action="Index">Доктор</a>
+                        </li>
                         @if (User.IsInRole(WC.Admin))
                         {
                             <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Create Doctor User</a>

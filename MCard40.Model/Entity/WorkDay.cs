@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MCard40.Model.Enums;
+﻿using MCard40.Model.Enums;
+using MCard40.Model.Interfaces;
 
 namespace MCard40.Model.Entity;
-public class WorkDay
+public class WorkDay : IEntity<int>
 {
     /// ID
     public int Id { get; set; }

@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MCard40.Model.Enums;
 using MCard40.Model.Identity;
+using MCard40.Model.Interfaces;
 
 namespace MCard40.Model.Entity;
-public class Doctor
+public class Doctor : IEntity<int>
 {
-    /// Id
+    /// <summary>
+    /// ID
+    /// </summary>
+    [Required]
     public int Id { get; set; }
-    /// ФИО 
+    /// <summary>
+    /// Фио
+    /// </summary>
+    [Required]
     public string FullName { get; set; }
 
     /// День рождения
@@ -20,7 +28,11 @@ public class Doctor
     /// Пол 
     public Sex Sex { get; set; }
 
-    /// ИНН 
+    /// <summary>
+    /// ITN
+    /// </summary>
+    [MaxLength(14)]
+    [MinLength(14)]
     public string ITN { get; set; }
 
     /// Адрес дома

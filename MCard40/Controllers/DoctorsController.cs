@@ -82,13 +82,17 @@ namespace MCard40.Web.Controllers
         {
             return View();
         }
-
+        [HttpPost] //enum
+        public IActionResult Index(Doctor model)
+        {
+            return Content(model.Sex.ToString());
+        }
         // POST: Doctors/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FullName,Age,ITN,Address_home,Post,Experience,Address_job,Degree")] Doctor doctor)
+        public async Task<IActionResult> Create([Bind("Id,FullName,Age,Sex,ITN,Address_home,Post,Experience,Address_job,Degree")] Doctor doctor)
         {
                 _context.Add(doctor);
                 await _context.SaveChangesAsync();

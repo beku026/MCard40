@@ -7,11 +7,11 @@ using MCard40.Data.Context;
 
 namespace MCard40.Web.Controllers
 {
-    public class DoctorsController : Controller
+    public class SearchDoctorController : Controller
     {
         private readonly MCard40DbContext _context;
 
-        public DoctorsController(MCard40DbContext context)
+        public SearchDoctorController(MCard40DbContext context)
         {
             _context = context;
         }
@@ -83,18 +83,6 @@ namespace MCard40.Web.Controllers
             return View();
         }
 
-        // POST: Doctors/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FullName,Age,ITN,Address_home,Post,Experience,Address_job,Degree")] Doctor doctor)
-        {
-                _context.Add(doctor);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            return View(doctor);
-        }
 
         // GET: Doctors/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -145,43 +133,6 @@ namespace MCard40.Web.Controllers
                 return RedirectToAction(nameof(Index));
             //}
             return View(doctor);
-        }
-
-        // GET: Doctors/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Doctors == null)
-            {
-                return NotFound();
-            }
-
-            var doctor = await _context.Doctors
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (doctor == null)
-            {
-                return NotFound();
-            }
-
-            return View(doctor);
-        }
-
-        // POST: Doctors/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Doctors == null)
-            {
-                return Problem("Entity set 'MCard40DbContext.Doctor'  is null.");
-            }
-            var doctor = await _context.Doctors.FindAsync(id);
-            if (doctor != null)
-            {
-                _context.Doctors.Remove(doctor);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
         }
 
         private bool DoctorExists(int id)

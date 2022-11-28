@@ -13,7 +13,7 @@ namespace MCard40.Data.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(10)", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     Nickname = table.Column<string>(type: "nvarchar(120)", nullable: false)
                 },
                 constraints: table =>
@@ -36,7 +36,7 @@ namespace MCard40.Data.Migrations
                     Experience = table.Column<DateTime>(type: "date", nullable: false),
                     Address_job = table.Column<string>(type: "nvarchar(250)", nullable: false),
                     Degree = table.Column<string>(type: "nvarchar(30)", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(10)", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(100)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -61,7 +61,7 @@ namespace MCard40.Data.Migrations
                     Address = table.Column<string>(type: "nvarchar(250)", nullable: false),
                     BloodGroup = table.Column<int>(type: "int", nullable: false),
                     Disability = table.Column<int>(type: "int", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(10)", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(100)", nullable: true)
                 },
                 constraints: table =>
                 {

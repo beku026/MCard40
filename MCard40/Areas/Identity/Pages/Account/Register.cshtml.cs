@@ -20,6 +20,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using MCard40.Infrastucture.StaticClasses;
+using MCard40.Web.Controllers;
 
 namespace MCard40.Web.Areas.Identity.Pages.Account
 {
@@ -32,6 +33,7 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly CopyUserController _userController;
 
         public RegisterModel(
             UserManager<MCardUser> userManager,
@@ -39,7 +41,8 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
             SignInManager<MCardUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            RoleManager<IdentityRole> roleManager)
+            RoleManager<IdentityRole> roleManager,
+            CopyUserController userController)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -48,6 +51,7 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
             _logger = logger;
             _emailSender = emailSender;
             _roleManager = roleManager;
+            _userController = userController;
         }
 
         /// <summary>
@@ -132,17 +136,17 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    //await _userManager.AddToRoleAsync(user, WC.Admin);
+                    await _userManager.AddToRoleAsync(user, WC.Admin);
 
-                    if (User.IsInRole(WC.Admin))
-                    {
-                        await _userManager.AddToRoleAsync(user, WC.Doctor);
-                    }
-                    else
-                    {
-                        await _userManager.AddToRoleAsync(user, WC.Patient);
-                    }
-
+                    //if (User.IsInRole(WC.Admin))
+                    //{
+                    //    await _userManager.AddToRoleAsync(user, WC.Doctor);
+                    //}
+                    //else
+                    //{
+                    //    await _userManager.AddToRoleAsync(user, WC.Patient);
+                    //}
+                    _userController.AddUser(user);
                     _logger.LogInformation("User created a new account with password.");
 
                     var userId = await _userManager.GetUserIdAsync(user);

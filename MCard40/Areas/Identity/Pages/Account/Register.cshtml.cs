@@ -136,16 +136,16 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, WC.Admin);
+                    //await _userManager.AddToRoleAsync(user, WC.Admin);
 
-                    //if (User.IsInRole(WC.Admin))
-                    //{
-                    //    await _userManager.AddToRoleAsync(user, WC.Doctor);
-                    //}
-                    //else
-                    //{
-                    //    await _userManager.AddToRoleAsync(user, WC.Patient);
-                    //}
+                    if (User.IsInRole(WC.Admin))
+                    {
+                        await _userManager.AddToRoleAsync(user, WC.Doctor);
+                    }
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, WC.Patient);
+                    }
                     _userController.AddUser(user);
                     _logger.LogInformation("User created a new account with password.");
 
@@ -167,8 +167,15 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
+                        if(User.IsInRole(WC.Admin))
+                        {
+                            return LocalRedirect(returnUrl);
+                        }
+                        else
+                        {
+                            await _signInManager.SignInAsync(user, isPersistent: false);
+                            return LocalRedirect(returnUrl);
+                        }    
                     }
                 }
                 foreach (var error in result.Errors)

@@ -1,32 +1,28 @@
-﻿@model IEnumerable<MCard40.Model.Entity.Doctor>
+﻿@using MCard40.Infrastucture.StaticClasses;
+@model IEnumerable<MCard40.Model.Entity.Doctor>
 @*@using X.PagedList;
 
 <link href="~/css/PagedList.css" rel="stylesheet" type="text/css" />*@
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Поиск врача";
 }
 
-<h1>Index</h1>
+<h1>Поиск врача</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 @using (Html.BeginForm("Index", "Doctors", FormMethod.Get))
 {
     <p>
-        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-        <input type="submit" value="Search" />
+        Введите ФИО: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Поиск" />
     </p>
 }
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.ActionLink("FullName", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter=ViewBag.CurrentFilter })
-            </th>
-            @*<th>
                 @Html.DisplayNameFor(model => model.FullName)
-            </th>*@
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Age)
             </th>
@@ -85,17 +81,22 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Degree)
                 </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
+                
+                @if (User.IsInRole(WC.Admin))
+                {
+                    <td>  
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                    </td>
+                }
+                else if (User.IsInRole(WC.Doctor))
+                 {
+                    <td>  
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                    </td>
+                }
             </tr>
         }
     </tbody>
 </table>
 <br />
-@*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-
-@Html.PagedListPager(Model, page => Url.Action("Index",
-    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))*@

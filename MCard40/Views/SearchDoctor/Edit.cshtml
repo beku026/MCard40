@@ -1,13 +1,12 @@
-﻿@model MCard40.Model.Entity.Doctor
-@using MCard40.Model.Enums
+﻿@using MCard40.Model.Enums;
+@model MCard40.Model.Entity.Doctor
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Редактировать";
 }
 
-<h1>Edit</h1>
+<h1>Редактировать</h1>
 
-<h4>Doctor</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -24,15 +23,11 @@
                 <input asp-for="Age" class="form-control" />
                 <span asp-validation-for="Age" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <label asp-for="Sex" class="control-label"></label>
-                @Html.DropDownListFor(m => m.Sex,
-                new SelectList(Enum.GetValues(typeof(Sex))),
-                "Select Sex")
+                <select asp-for="Sex" asp-items="Html.GetEnumSelectList<Sex>()"></select>
                 <span asp-validation-for="Sex" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <label asp-for="ITN" class="control-label"></label>
                 <input asp-for="ITN" class="form-control" />
@@ -71,7 +66,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Назад</a>
 </div>
 
 @section Scripts {

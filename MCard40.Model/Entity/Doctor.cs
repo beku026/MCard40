@@ -37,7 +37,11 @@ public class Doctor : IEntity<int>
     /// </summary>
     [MaxLength(14)]
     [MinLength(14)]
+<<<<<<< HEAD
     [Display(Name = "ИНН")]
+=======
+    //[StringLength(14, MinimumLength = 14, ErrorMessage = "Длина меньше 14")]
+>>>>>>> 7c5bee4ba5ee5b67536b79df91d5dc30dadbb269
     public string ITN { get; set; }
 
     /// Адрес дома

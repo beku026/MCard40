@@ -1,10 +1,5 @@
-<<<<<<< HEAD:MCard40/Views/SearchDoctor/Edit.cshtml
 ﻿@using MCard40.Model.Enums;
 @model MCard40.Model.Entity.Doctor
-=======
-﻿@model MCard40.Model.Entity.Doctor
-@using MCard40.Model.Enums
->>>>>>> 7c5bee4ba5ee5b67536b79df91d5dc30dadbb269:MCard40/Views/Doctors/Edit.cshtml
 
 @{
     ViewData["Title"] = "Редактировать";
@@ -28,23 +23,11 @@
                 <input asp-for="Age" class="form-control" />
                 <span asp-validation-for="Age" class="text-danger"></span>
             </div>
-<<<<<<< HEAD:MCard40/Views/SearchDoctor/Edit.cshtml
             <div class="form-group">
                 <label asp-for="Sex" class="control-label"></label>
                 <select asp-for="Sex" asp-items="Html.GetEnumSelectList<Sex>()"></select>
                 <span asp-validation-for="Sex" class="text-danger"></span>
             </div>
-=======
-
-            <div class="form-group">
-                <label asp-for="Sex" class="control-label"></label>
-                @Html.DropDownListFor(m => m.Sex,
-                new SelectList(Enum.GetValues(typeof(Sex))),
-                "Select Sex")
-                <span asp-validation-for="Sex" class="text-danger"></span>
-            </div>
-
->>>>>>> 7c5bee4ba5ee5b67536b79df91d5dc30dadbb269:MCard40/Views/Doctors/Edit.cshtml
             <div class="form-group">
                 <label asp-for="ITN" class="control-label"></label>
                 <input asp-for="ITN" class="form-control" />

@@ -82,27 +82,7 @@ namespace MCard40.Web.Controllers
         {
             return View();
         }
-<<<<<<< HEAD:MCard40/Controllers/SearchDoctorController.cs
 
-=======
-        [HttpPost] //enum
-        public IActionResult Index(Doctor model)
-        {
-            return Content(model.Sex.ToString());
-        }
-        // POST: Doctors/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FullName,Age,Sex,ITN,Address_home,Post,Experience,Address_job,Degree")] Doctor doctor)
-        {
-                _context.Add(doctor);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            return View(doctor);
-        }
->>>>>>> 7c5bee4ba5ee5b67536b79df91d5dc30dadbb269:MCard40/Controllers/DoctorsController.cs
 
         // GET: Doctors/Edit/5
         public async Task<IActionResult> Edit(int? id)

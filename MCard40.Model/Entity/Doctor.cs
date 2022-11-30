@@ -15,21 +15,17 @@ public class Doctor : IEntity<int>
     /// <summary>
     /// ID
     /// </summary>
-    [Required]
     public int Id { get; set; }
+    
     /// <summary>
     /// Фио
     /// </summary>
-    [Required]
-    [Display(Name = "ФИО врача")]
     public string FullName { get; set; }
 
     /// День рождения
-    [Display(Name = "День рождения")]
     public DateTime Age { get; set; }
 
     /// Пол 
-    [Display(Name = "Пол")]
     public Sex Sex { get; set; }
 
     /// <summary>
@@ -37,27 +33,21 @@ public class Doctor : IEntity<int>
     /// </summary>
     [MaxLength(14)]
     [MinLength(14)]
-    [Display(Name = "ИНН")]
     public string ITN { get; set; }
 
     /// Адрес дома
-    [Display(Name = "Место жительства")]
     public string Address_home { get; set; }
 
     /// Должность
-    [Display(Name = "Должность")]
     public string Post { get; set; }
 
     /// Опыт работы
-    [Display(Name = "Опыт работы")]
     public DateTime Experience { get; set; }
 
     /// Адрес работы
-    [Display(Name = "Место работы")]
     public string Address_job { get; set; }
 
     /// Степень
-    [Display(Name = "Степень")]
     public string Degree { get; set; }
 
     public virtual List<CardPage> CardPages { get; set; }

@@ -1,5 +1,6 @@
 ﻿using MCard40.Model.Enums;
 using MCard40.Model.Interfaces;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MCard40.Model.Entity;
 public class WorkDay : IEntity<int>
@@ -8,10 +9,10 @@ public class WorkDay : IEntity<int>
     public int Id { get; set; }
 
     /// Начало
-    public DateTime StartWork { get; set; }
+    public TimeSpan StartWork { get; set; }
 
     /// Конец
-    public DateTime FinalWork { get; set; }
+    public TimeSpan FinalWork { get; set; }
 
     /// Тип занятости
     public Employment Employment_type { get; set; }

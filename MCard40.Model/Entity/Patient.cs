@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,9 @@ public class Patient : IEntity<int>
     public Sex Sex { get; set; }
 
     /// ИНН 
-    public short ITN { get; set; }
+    [MaxLength(14)]
+    [MinLength(14)]
+    public string ITN { get; set; }
 
     /// Место жительства
     public string Address { get; set; }

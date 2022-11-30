@@ -28,7 +28,7 @@ public class PatientConfig : IEntityTypeConfiguration<Patient>
         builder.HasIndex(u => u.ITN).IsUnique();
 
         builder.Property(i => i.ITN)
-            .HasColumnType("int")
+            .HasColumnType("nvarchar(14)")
             .HasMaxLength(14)
             .IsRequired();
 

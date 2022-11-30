@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Profiles\" />
-    <Folder Include="Services\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
 

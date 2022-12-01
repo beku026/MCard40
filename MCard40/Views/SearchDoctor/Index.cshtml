@@ -1,8 +1,6 @@
 ﻿@using MCard40.Infrastucture.StaticClasses;
 @model IEnumerable<MCard40.Model.Entity.Doctor>
-@*@using X.PagedList;
 
-<link href="~/css/PagedList.css" rel="stylesheet" type="text/css" />*@
 @{
     ViewData["Title"] = "Поиск врача";
 }
@@ -10,7 +8,7 @@
 <h1>Поиск врача</h1>
 
 
-@using (Html.BeginForm("Index", "Doctors", FormMethod.Get))
+@using (Html.BeginForm())
 {
     <p>
         Введите ФИО: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
@@ -19,6 +17,9 @@
 }
 <table class="table">
     <thead>
+        <tr>
+            @Html.ActionLink("Сортировка по ФИО : ", "Index", new {sortOrder = ViewBag.NameSortParm})
+        </tr>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.FullName)

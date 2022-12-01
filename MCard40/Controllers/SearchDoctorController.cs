@@ -17,23 +17,15 @@ namespace MCard40.Web.Controllers
         }
 
         // GET: Doctors
-        public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
+        public ViewResult Index(string sortOrder, string searchString)
         {
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             //ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
-            if (searchString != null)
-            {
-                page = 1;
-            }
-            else
-            {
-                searchString = currentFilter;
-            }
 
             ViewBag.CurrentFilter = searchString;
             var doctors = from s in _context.Doctors
-                           select s;
+                          select s;
             if (!String.IsNullOrEmpty(searchString))
             {
                 doctors = doctors.Where(s => s.FullName.Contains(searchString)
@@ -52,11 +44,6 @@ namespace MCard40.Web.Controllers
                     break;
             }
             return View(doctors.ToList());
-            //return View(await _context.Doctors.ToListAsync());
-
-            //int pageSize = 3;
-            //int pageNumber = (page ?? 1);
-            //return View(doctors.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Doctors/Details/5
@@ -112,32 +99,28 @@ namespace MCard40.Web.Controllers
                 return NotFound();
             }
 
-            //if (ModelState.IsValid)
-            //{
-                try
+            try
+            {
+                _context.Update(doctor);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!DoctorExists(doctor.Id))
                 {
-                    _context.Update(doctor);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!DoctorExists(doctor.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
-                return RedirectToAction(nameof(Index));
-            //}
-            return View(doctor);
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         private bool DoctorExists(int id)
         {
-          return _context.Doctors.Any(e => e.Id == id);
+            return _context.Doctors.Any(e => e.Id == id);
         }
     }
 }

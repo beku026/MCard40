@@ -3,46 +3,38 @@ using Microsoft.EntityFrameworkCore;
 using MCard40.Model.Entity;
 using MCard40.Web.Data;
 using MCard40.Data.Context;
+using MCard40.Infrastucture.Services.Interfaces;
 //using X.PagedList;
 
 namespace MCard40.Web.Controllers
 {
-    public class SearchDoctorController : Controller
+    public class DoctorController : Controller
     {
         private readonly MCard40DbContext _context;
+        private readonly IDoctorService _service;
 
-        public SearchDoctorController(MCard40DbContext context)
+        public DoctorController(MCard40DbContext context,
+            IDoctorService service)
         {
             _context = context;
+            _service = service;
         }
 
+        
         // GET: Doctors
-        public ViewResult Index(string sortOrder, string searchString)
+        public IActionResult Index(string sortOrder, string searchString)
         {
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             //ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
 
             ViewBag.CurrentFilter = searchString;
-            var doctors = from s in _context.Doctors
-                          select s;
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                doctors = doctors.Where(s => s.FullName.Contains(searchString)
-                                      );
-            }
-            switch (sortOrder)
-            {
-                case "name_desc":
-                    doctors = doctors.OrderByDescending(s => s.FullName);
-                    break;
-                case "Date":
-                    doctors = doctors.OrderBy(s => s.Age);
-                    break;
-                default:
-                    doctors = doctors.OrderBy(s => s.FullName);
-                    break;
-            }
+            
+            var doctors = _service.GetFiltered(sortOrder, searchString);
+
+            if(doctors == null)
+                return NotFound();
+
             return View(doctors.ToList());
         }
 

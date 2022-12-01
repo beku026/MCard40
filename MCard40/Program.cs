@@ -5,6 +5,11 @@ using MCard40.Web.Areas.Identity.Data;
 using MCard40.Data.Context;
 using Microsoft.Extensions.DependencyInjection;
 using MCard40.Web.Controllers;
+using MCard40.Model.Interfaces;
+using MCard40.Model.Entity;
+using MCard40.Infrastucture.Services.Interfaces;
+using MCard40.Infrastucture.Services.Implementations;
+using MCard40.Data.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("MCard40WebContextConnection") ?? throw new InvalidOperationException("Connection string 'MCard40WebContextConnection' not found.");
@@ -13,6 +18,8 @@ var connectionString = builder.Configuration.GetConnectionString("MCard40WebCont
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<CopyUserController>();
+builder.Services.AddTransient<IRepository<Doctor>, Repository<Doctor>>();
+builder.Services.AddTransient<IDoctorService, DoctorService>();
 builder.Services.AddDbContext<MCard40DbContext>(options => options.UseLazyLoadingProxies());
 builder.Services.AddRazorPages();
 

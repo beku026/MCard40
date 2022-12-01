@@ -14,11 +14,9 @@ namespace MCard40.Data.Repositories
               where T : class, IEntity<int>
     {
         private readonly MCard40DbContext _context;
-        private readonly DbSet<T> _set;
         public Repository(MCard40DbContext context)
         {
             _context = context;
-            _set = _context.Set<T>();
         }
 
         /// <summary>
@@ -27,13 +25,13 @@ namespace MCard40.Data.Repositories
         /// <param name="model"></param>
         public async Task<T> CreateAsync(T model)
         {
-            if (model == null)
+            if (model == null || _context.Set<T>() == null)
             {
                 return null;
             }
 
 
-            await _set.AddAsync(model);
+            await _context.AddAsync(model);
             return model;
         }
 
@@ -41,38 +39,52 @@ namespace MCard40.Data.Repositories
         /// удаление модельки из бд
         /// </summary>
         /// <param name="model"></param>
-        public void Delete(T model)
+        public T Delete(T model)
         {
-            if (_set.Any(x => x.Id == model.Id))
+            if (model == null || _context.Set<T>() == null)
             {
-                _set.Remove(model);
+                return null;
             }
+
+            if (_context.Set<T>().Any(x => x.Id == model.Id))
+            {
+                _context.Remove(model);
+            }
+
+            return model;
         }
 
         /// <summary>
         /// изменение модельки
         /// </summary>
         /// <param name="model"></param>
-        public void Edit(T model)
+        public T Edit(T model)
         {
-            if (_set.Any(x => x.Id == model.Id))
+            if (model == null || _context.Set<T>() == null)
             {
-                _set.Update(model);
+                return null;
             }
+
+            if (_context.Set<T>().Any(x => x.Id == model.Id))
+            {
+                _context.Update(model);
+            }
+
+            return model;
         }
 
         /// <summary>
         /// Получение модельки по определенным условиям
         /// </summary>
         /// <param name="predicate"></param>
-        public List<T> GetAsync(Func<T, bool> predicate = null)
+        public IQueryable<T> Get(Func<T, bool> predicate = null)
         {
-            var items = _set.AsQueryable();
+            var items = _context.Set<T>().AsQueryable();
             if (predicate != null)
             {
                 items = items.Where(predicate).AsQueryable();
             }
-            return items.ToList();
+            return items;
         }
 
         /// <summary>
@@ -81,7 +93,12 @@ namespace MCard40.Data.Repositories
         /// <param name="id"></param>
         public T GetById(int id)
         {
-            return _set.Find(id);
+            if (_context.Set<T>() == null)
+            {
+                return null;
+            }
+
+            return _context.Set<T>().Find(id);
         }
 
         /// <summary>
@@ -90,7 +107,12 @@ namespace MCard40.Data.Repositories
         /// <param name="id"></param>
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _set.FindAsync(id);
+            if (_context.Set<T>() == null)
+            {
+                return null;
+            }
+
+            return await _context.Set<T>().FindAsync(id);
         }
 
         /// <summary>
@@ -102,7 +124,14 @@ namespace MCard40.Data.Repositories
         }
         public IEnumerable<T> GetWithInclude(params Expression<Func<T, object>>[] includeProperties)
         {
-            return Include(includeProperties).ToList();
+            var doctors = Include(includeProperties);
+
+            if(doctors == null)
+            {
+                return null;
+            }
+
+            return doctors.ToList();
         }
 
         public IEnumerable<T> GetWithInclude(Func<T, bool> predicate,
@@ -110,25 +139,31 @@ namespace MCard40.Data.Repositories
         {
             try
             {
-                return Include(includeProperties).Where(predicate).ToList();
+                var doctors = Include(includeProperties);
+
+                if (doctors == null)
+                {
+                    return null;
+                }
+
+                return doctors.Where(predicate).ToList();
             }
-            catch (Exception ex)
+            catch
             {
-                return new List<T>();
+                return null;
             }
         }
 
         private IQueryable<T> Include(params Expression<Func<T, object>>[] includes)
         {
-            IQueryable<T> query = _set.AsNoTracking();
+            if (_context.Set<T>() == null)
+            {
+                return null;
+            }
+
+            IQueryable<T> query = _context.Set<T>().AsNoTracking();
             return includes
                 .Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
         }
-
-        public void EditEntry(T model)
-        {
-            _context.Entry(model).State = EntityState.Modified;
-        }
-
     }
 }

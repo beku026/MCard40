@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MCard40.Data.Migrations
 {
     [DbContext(typeof(MCard40DbContext))]
-    [Migration("20221125112002_init")]
+    [Migration("20221202103703_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -106,7 +106,7 @@ namespace MCard40.Data.Migrations
                         .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(250)");
 
                     b.HasKey("Id");
 
@@ -143,16 +143,17 @@ namespace MCard40.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(120)");
 
-                    b.Property<int>("ITN")
+                    b.Property<string>("ITN")
+                        .IsRequired()
                         .HasMaxLength(14)
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(14)");
 
                     b.Property<string>("Sex")
                         .IsRequired()
                         .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(250)");
 
                     b.HasKey("Id");
 
@@ -196,11 +197,11 @@ namespace MCard40.Data.Migrations
                     b.Property<int>("Employment_type")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("FinalWork")
-                        .HasColumnType("datetime2");
+                    b.Property<TimeSpan>("FinalWork")
+                        .HasColumnType("time");
 
-                    b.Property<DateTime>("StartWork")
-                        .HasColumnType("datetime2");
+                    b.Property<TimeSpan>("StartWork")
+                        .HasColumnType("time");
 
                     b.Property<int>("WeekId")
                         .HasColumnType("int");
@@ -215,7 +216,7 @@ namespace MCard40.Data.Migrations
             modelBuilder.Entity("MCard40.Model.Identity.User", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Nickname")
                         .IsRequired()

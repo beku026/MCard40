@@ -13,7 +13,7 @@ namespace MCard40.Data.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(250)", nullable: false),
                     Nickname = table.Column<string>(type: "nvarchar(120)", nullable: false)
                 },
                 constraints: table =>
@@ -36,7 +36,7 @@ namespace MCard40.Data.Migrations
                     Experience = table.Column<DateTime>(type: "date", nullable: false),
                     Address_job = table.Column<string>(type: "nvarchar(250)", nullable: false),
                     Degree = table.Column<string>(type: "nvarchar(30)", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(100)", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(250)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -57,11 +57,11 @@ namespace MCard40.Data.Migrations
                     FullName = table.Column<string>(type: "nvarchar(120)", nullable: false),
                     Age = table.Column<DateTime>(type: "date", nullable: false),
                     Sex = table.Column<string>(type: "nvarchar(10)", nullable: false),
-                    ITN = table.Column<int>(type: "int", maxLength: 14, nullable: false),
+                    ITN = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false),
                     Address = table.Column<string>(type: "nvarchar(250)", nullable: false),
                     BloodGroup = table.Column<int>(type: "int", nullable: false),
                     Disability = table.Column<int>(type: "int", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(100)", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(250)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -129,8 +129,8 @@ namespace MCard40.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    StartWork = table.Column<DateTime>(type: "time", nullable: false),
-                    FinalWork = table.Column<DateTime>(type: "time", nullable: false),
+                    StartWork = table.Column<TimeSpan>(type: "time", nullable: false),
+                    FinalWork = table.Column<TimeSpan>(type: "time", nullable: false),
                     Employment_type = table.Column<int>(type: "int", nullable: false),
                     WeekId = table.Column<int>(type: "int", nullable: false)
                 },

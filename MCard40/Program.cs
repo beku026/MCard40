@@ -20,6 +20,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<CopyUserController>();
 builder.Services.AddTransient<IRepository<Doctor>, Repository<Doctor>>();
 builder.Services.AddTransient<IDoctorService, DoctorService>();
+builder.Services.AddTransient<IRepository<Patient>, Repository<Patient>>();
+builder.Services.AddTransient<IPatientService, PatientService>();
 builder.Services.AddDbContext<MCard40DbContext>(options => options.UseLazyLoadingProxies());
 builder.Services.AddRazorPages();
 

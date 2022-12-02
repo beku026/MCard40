@@ -11,7 +11,7 @@ namespace MCard40.Model.Interfaces
     {
         Task<T> CreateAsync(T model);
         Task<T> GetByIdAsync(int id);
-        T GetById(int id);
+        T GetById(int? id);
         IQueryable<T> Get(Func<T, bool> predicate = null);
         T Delete(T model);
         T Edit(T model);

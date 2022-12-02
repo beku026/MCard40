@@ -27,7 +27,7 @@ public class PatientVM
     [MinLength(14)]
     [Required(ErrorMessage = "Обязательно укажите ИНН")]
     [Display(Name = "ИНН")]
-    public short ITN { get; set; }
+    public string ITN { get; set; }
 
     [Required(ErrorMessage = "Обязательно укажите место жительства")]
     [Display(Name = "Адресс")]

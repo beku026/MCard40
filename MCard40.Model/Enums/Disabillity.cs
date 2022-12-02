@@ -13,12 +13,15 @@ namespace MCard40.Model.Enums;
 /// </summary>
 public enum Disability
 {
+    [Display(Name = "Отсутствует")]
+    NoDegreeDisability = 0,
+
     [Display(Name = "I группа")]
-    FirstDegreeDisability = 0,
+    FirstDegreeDisability = 1,
 
     [Display(Name = "II группа")]
-    SecondDegreeDisability = 1,
+    SecondDegreeDisability = 2,
 
     [Display(Name = "III группа")]
-    ThirdDegreeDisability = 2,
+    ThirdDegreeDisability = 3,
 }

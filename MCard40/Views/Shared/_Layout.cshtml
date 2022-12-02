@@ -30,10 +30,15 @@
                         @if (User.IsInRole(WC.Admin) || User.IsInRole(WC.Patient) || User.IsInRole(WC.Doctor))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="SearchDoctor" asp-action="Index">Доктор</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Doctor" asp-action="Index">Доктор</a>
                             </li>
                         }
-                        
+                        @if (User.IsInRole(WC.Admin) || User.IsInRole(WC.Doctor))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Patient" asp-action="Index">Пациент</a>
+                            </li>
+                        }
                         @if (User.IsInRole(WC.Admin))
                         {
                             <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Создать аккаунт доктора</a>      

@@ -1,12 +1,13 @@
-﻿@using MCard40.Model.Enums;
-@model MCard40.Model.Entity.Doctor
+﻿@model MCard40.Model.Entity.Patient
+@using MCard40.Model.Enums
 
 @{
-    ViewData["Title"] = "Редактировать";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Редактировать</h1>
+<h1>Edit</h1>
 
+<h4>Patient</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -34,29 +35,19 @@
                 <span asp-validation-for="ITN" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Address_home" class="control-label"></label>
-                <input asp-for="Address_home" class="form-control" />
-                <span asp-validation-for="Address_home" class="text-danger"></span>
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Post" class="control-label"></label>
-                <input asp-for="Post" class="form-control" />
-                <span asp-validation-for="Post" class="text-danger"></span>
+                <label asp-for="BloodGroup" class="control-label"></label>
+                <select asp-for="BloodGroup" asp-items="Html.GetEnumSelectList<BloodGroup>()"></select>
+                <span asp-validation-for="BloodGroup" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Experience" class="control-label"></label>
-                <input asp-for="Experience" class="form-control" />
-                <span asp-validation-for="Experience" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address_job" class="control-label"></label>
-                <input asp-for="Address_job" class="form-control" />
-                <span asp-validation-for="Address_job" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Degree" class="control-label"></label>
-                <input asp-for="Degree" class="form-control" />
-                <span asp-validation-for="Degree" class="text-danger"></span>
+                <label asp-for="Disability" class="control-label"></label>
+                <select asp-for="Disability" asp-items="Html.GetEnumSelectList<Disability>()"></select>
+                <span asp-validation-for="Disability" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -66,7 +57,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Назад</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

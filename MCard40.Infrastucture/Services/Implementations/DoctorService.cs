@@ -54,5 +54,15 @@ namespace MCard40.Infrastucture.Services.Implementations
 
             return doctors;
         }
+        public Doctor GetDoctorDetails(int? id)
+        {
+            if (id == null)
+            {
+                return null;
+            }
+
+            var doctor = _repository.GetById(id.Value);
+            return doctor; 
+        }
     }
 }

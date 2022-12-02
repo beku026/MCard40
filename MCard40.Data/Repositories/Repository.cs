@@ -91,7 +91,7 @@ namespace MCard40.Data.Repositories
         /// Взять модельку по Id
         /// </summary>
         /// <param name="id"></param>
-        public T GetById(int id)
+        public T GetById(int? id)
         {
             if (_context.Set<T>() == null)
             {

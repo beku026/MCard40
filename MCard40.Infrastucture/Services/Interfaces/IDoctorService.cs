@@ -14,5 +14,6 @@ namespace MCard40.Infrastucture.Services.Interfaces
         Task Delete(int id);
         Task Edit(int id, DoctorVM model);
         IEnumerable<Doctor> GetFiltered(string sortOrder, string searchString);
+        Doctor GetDoctorDetails(int? id);
     }
 }

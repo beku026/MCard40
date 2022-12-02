@@ -7,10 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using MCard40.Model.Enums;
 using MCard40.Model.Identity;
-using MCard40.Model.Interfaces;
 
 namespace MCard40.Model.Entity;
-public class Doctor : IEntity<int>
+public class Doctor : Entity<int>
 {
     /// <summary>
     /// ID

@@ -10,9 +10,10 @@ namespace MCard40.Infrastucture.Services.Interfaces
 {
     public interface IDoctorService
     {
-        Task Create(DoctorVM model);
-        Task Delete(int id);
-        Task Edit(int id, DoctorVM model);
+        void Add(Doctor doctor);
+        Doctor GetById(int? id);
+        Doctor Update(int id, Doctor doctor);
+
         IEnumerable<Doctor> GetFiltered(string sortOrder, string searchString);
         Doctor GetDoctorDetails(int? id);
     }

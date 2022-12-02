@@ -18,9 +18,9 @@ var connectionString = builder.Configuration.GetConnectionString("MCard40WebCont
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<CopyUserController>();
-builder.Services.AddTransient<IRepository<Doctor>, Repository<Doctor>>();
+builder.Services.AddTransient<IRepository<Doctor, int>, Repository<Doctor, int>>();
 builder.Services.AddTransient<IDoctorService, DoctorService>();
-builder.Services.AddTransient<IRepository<Patient>, Repository<Patient>>();
+builder.Services.AddTransient<IRepository<Patient, int>, Repository<Patient, int>>();
 builder.Services.AddTransient<IPatientService, PatientService>();
 builder.Services.AddDbContext<MCard40DbContext>(options => options.UseLazyLoadingProxies());
 builder.Services.AddRazorPages();

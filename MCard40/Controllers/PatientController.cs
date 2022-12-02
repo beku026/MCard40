@@ -14,14 +14,11 @@ namespace MCard40.Web.Controllers
 {
     public class PatientController : Controller
     {
-        private readonly MCard40DbContext _context;
         private readonly IPatientService _service;
 
-        public PatientController(MCard40DbContext context,
-            IPatientService service)
+        public PatientController(IPatientService service)
         {
             _service= service;
-            _context = context;
         }
 
         // GET: Patient
@@ -66,21 +63,16 @@ namespace MCard40.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,FullName,Age,Sex,ITN,Address,BloodGroup,Disability")] Patient patient)
         {
-                _context.Add(patient);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+            _service.Add(patient);
+            return RedirectToAction(nameof(Index));
 
         }
 
         // GET: Patient/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Patients == null)
-            {
-                return NotFound();
-            }
 
-            var patient = await _context.Patients.FindAsync(id);
+            var patient = _service.GetById(id);
             if (patient == null)
             {
                 return NotFound();
@@ -99,21 +91,10 @@ namespace MCard40.Web.Controllers
             {
                 return NotFound();
             }
-            try
+            patient = _service.Update(id, patient);
+            if (patient == null)
             {
-                _context.Update(patient);
-                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PatientExists(patient.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return NotFound();
             }
             return RedirectToAction(nameof(Index));
         }
@@ -121,13 +102,7 @@ namespace MCard40.Web.Controllers
         // GET: Patient/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Patients == null)
-            {
-                return NotFound();
-            }
-
-            var patient = await _context.Patients
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var patient = _service.GetById(id);
             if (patient == null)
             {
                 return NotFound();
@@ -141,23 +116,12 @@ namespace MCard40.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Patients == null)
+            var patient = _service.Delete(id);
+            if (patient == null)
             {
-                return Problem("Entity set 'MCard40WebContext.Patient'  is null.");
+                return Problem("Entity set 'MCard40DbContext.Patient'  is null.");
             }
-            var patient = await _context.Patients.FindAsync(id);
-            if (patient != null)
-            {
-                _context.Patients.Remove(patient);
-            }
-            
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool PatientExists(int id)
-        {
-          return _context.Patients.Any(e => e.Id == id);
         }
     }
 }

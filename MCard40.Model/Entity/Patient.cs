@@ -6,10 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using MCard40.Model.Enums;
 using MCard40.Model.Identity;
-using MCard40.Model.Interfaces;
 
 namespace MCard40.Model.Entity;
-public class Patient : IEntity<int>
+public class Patient : Entity<int>
 {
     /// Id
     public int Id { get; set; }

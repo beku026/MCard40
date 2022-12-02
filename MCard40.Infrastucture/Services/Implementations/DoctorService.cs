@@ -10,27 +10,16 @@ namespace MCard40.Infrastucture.Services.Implementations
     public class DoctorService : IDoctorService
     {
         private readonly IMapper _mapper;
-        private readonly IRepository<Doctor> _repository;
+        private readonly IRepository<Doctor,int> _repository;
         public DoctorService(
-            IRepository<Doctor> repository)
+            IRepository<Doctor,int> repository)
         {
             _repository = repository;
         }
-        public Task Create(DoctorVM model)
+        public void Add(Doctor doctor)
         {
-            throw new NotImplementedException();
+            _repository.Create(doctor);
         }
-
-        public Task Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Edit(int id, DoctorVM model)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<Doctor> GetFiltered(string sortOrder, string searchString)
         {
             var doctors = _repository.Get();
@@ -54,6 +43,17 @@ namespace MCard40.Infrastucture.Services.Implementations
 
             return doctors;
         }
+        public Doctor GetById(int? id)
+        {
+            if (id == null)
+            {
+                return null;
+            }
+
+            var doctor = _repository.ReadById(id.Value);
+
+            return doctor;
+        }
         public Doctor GetDoctorDetails(int? id)
         {
             if (id == null)
@@ -61,8 +61,28 @@ namespace MCard40.Infrastucture.Services.Implementations
                 return null;
             }
 
-            var doctor = _repository.GetById(id.Value);
+            var doctor = _repository.ReadById(id.Value);
             return doctor; 
         }
+        public Doctor Update(int id, Doctor doctor)
+        {
+            try
+            {
+                _repository.Update(doctor);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_repository.IsExists(doctor.Id))  
+                {
+                    return null;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return doctor;
+        }
+
     }
 }

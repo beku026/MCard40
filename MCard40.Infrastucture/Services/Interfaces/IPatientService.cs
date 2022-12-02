@@ -1,4 +1,5 @@
-﻿using MCard40.Model.Entity;
+﻿using MCard40.Infrastucture.ViewModels.Patient;
+using MCard40.Model.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,11 @@ namespace MCard40.Infrastucture.Services.Interfaces
 {
     public interface IPatientService
     {
+        void Add(Patient doctor);
+        Patient GetById(int? id);
+        Patient Update(int id, Patient patient);
         IEnumerable<Patient> GetFiltered(string sortOrder, string searchString);
         Patient GetDoctorDetails(int? id);
+        Patient Delete(int id);
     }
 }

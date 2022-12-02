@@ -1,17 +1,19 @@
 ﻿using MCard40.Data.Context;
+using MCard40.Model.Entity;
 using MCard40.Model.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MCard40.Data.Repositories
 {
-    public class Repository<T> : IRepository<T>
-              where T : class, IEntity<int>
+    public class Repository<T, TId> : IRepository<T, TId>
+              where T : Entity<TId>
     {
         private readonly MCard40DbContext _context;
         public Repository(MCard40DbContext context)
@@ -23,16 +25,25 @@ namespace MCard40.Data.Repositories
         /// Добавление модельки в бд
         /// </summary>
         /// <param name="model"></param>
-        public async Task<T> CreateAsync(T model)
+        public async Task<T> Create(T model)
         {
-            if (model == null || _context.Set<T>() == null)
+            //if (model == null || _context.Set<T>() == null)
+            //{
+            //    return null;
+            //}
+
+
+            //await _context.AddAsync(model);
+            //return model;
+            if (_context.Set<T>() == null)
             {
                 return null;
             }
 
+            var a = _context.Set<T>().Add(model);
+            _context.SaveChanges();
 
-            await _context.AddAsync(model);
-            return model;
+            return a.Entity;
         }
 
         /// <summary>
@@ -41,38 +52,57 @@ namespace MCard40.Data.Repositories
         /// <param name="model"></param>
         public T Delete(T model)
         {
-            if (model == null || _context.Set<T>() == null)
+            //if (model == null || _context.Set<T>() == null)
+            //{
+            //    return null;
+            //}
+
+            //if (_context.Set<T>().Any(x => x.Id == model.Id))
+            //{
+            //    _context.Remove(model);
+            //}
+
+            //return model;
+            if (_context.Set<T>() == null)
             {
                 return null;
             }
 
-            if (_context.Set<T>().Any(x => x.Id == model.Id))
-            {
-                _context.Remove(model);
-            }
+            _context.Set<T>().Remove(model);
+
+            _context.SaveChanges();
 
             return model;
+        }
+        public T DeleteById(TId id)
+        {
+            var entity = ReadById(id);
+            _context.Set<T>().Remove(entity);
+
+            _context.SaveChanges();
+
+            return entity;
         }
 
         /// <summary>
         /// изменение модельки
         /// </summary>
-        /// <param name="model"></param>
-        public T Edit(T model)
+        public T Update(T entity)
         {
-            if (model == null || _context.Set<T>() == null)
+            if (_context.Set<T>() == null)
             {
                 return null;
             }
 
-            if (_context.Set<T>().Any(x => x.Id == model.Id))
-            {
-                _context.Update(model);
-            }
-
-            return model;
+            var a = _context.Set<T>().Update(entity);
+            _context.SaveChanges();
+            return a.Entity;
         }
 
+        public bool IsExists(TId id)
+        {
+            return _context.Set<T>().Any(entity => entity.Id.Equals(id));
+        }
         /// <summary>
         /// Получение модельки по определенным условиям
         /// </summary>
@@ -91,7 +121,7 @@ namespace MCard40.Data.Repositories
         /// Взять модельку по Id
         /// </summary>
         /// <param name="id"></param>
-        public T GetById(int? id)
+        public T ReadById(TId id)
         {
             if (_context.Set<T>() == null)
             {

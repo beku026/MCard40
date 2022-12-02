@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MCard40.Model.Interfaces
+namespace MCard40.Model.Entity
 {
-    public interface IEntity<T>
+    public class Entity<T>
     {
         public T Id { get; set; }
     }

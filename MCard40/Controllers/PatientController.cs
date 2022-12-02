@@ -66,13 +66,10 @@ namespace MCard40.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,FullName,Age,Sex,ITN,Address,BloodGroup,Disability")] Patient patient)
         {
-            //if (ModelState.IsValid)
-            //{
                 _context.Add(patient);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            //}
-            return View(patient);
+
         }
 
         // GET: Patient/Edit/5
@@ -102,28 +99,23 @@ namespace MCard40.Web.Controllers
             {
                 return NotFound();
             }
-
-            //if (ModelState.IsValid)
-            //{
-                try
+            try
+            {
+                _context.Update(patient);
+                 await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PatientExists(patient.Id))
                 {
-                    _context.Update(patient);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!PatientExists(patient.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
-                return RedirectToAction(nameof(Index));
-            //}
-            return View(patient);
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Patient/Delete/5

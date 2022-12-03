@@ -27,6 +27,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Приватность</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="TypesDoctor" asp-action="Index">Типы врачей</a>
+                        </li>
                         @if (User.IsInRole(WC.Admin) || User.IsInRole(WC.Patient) || User.IsInRole(WC.Doctor))
                         {
                             <li class="nav-item">

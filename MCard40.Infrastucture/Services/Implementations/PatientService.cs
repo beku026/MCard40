@@ -72,7 +72,7 @@ namespace MCard40.Infrastucture.Services.Implementations
 
             return patients;
         }
-        public Patient GetDoctorDetails(int? id)
+        public Patient GetPatientDetails(int? id)
         {
             if (id == null)
             {

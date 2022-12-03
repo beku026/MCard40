@@ -5,19 +5,18 @@ using System.Linq.Expressions;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using MCard40.Model.Entity;
 
 namespace MCard40.Model.Interfaces
 {
-    public interface IRepository<T, TId> where T : Entity<TId>
+    public interface IRepository<T, TId> where T : class,IEntity<TId>
     {
         Task<T> Create(T model);
+        public List<T> ReadAll();
         Task<T> GetByIdAsync(int id);
         T ReadById(TId? id);
         IQueryable<T> Get(Func<T, bool> predicate = null);
         T Delete(T model);
         public T DeleteById(TId id);
-        //T Edit(T model);
         public T Update(T entity);
         public bool IsExists(TId id);
         Task SaveAsync();

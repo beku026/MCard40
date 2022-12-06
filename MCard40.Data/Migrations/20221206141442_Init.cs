@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MCard40.Data.Migrations
 {
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -36,7 +36,7 @@ namespace MCard40.Data.Migrations
                     Experience = table.Column<DateTime>(type: "date", nullable: false),
                     Address_job = table.Column<string>(type: "nvarchar(250)", nullable: false),
                     Degree = table.Column<string>(type: "nvarchar(30)", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(250)", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(250)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,7 +45,8 @@ namespace MCard40.Data.Migrations
                         name: "FK_Doctors_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

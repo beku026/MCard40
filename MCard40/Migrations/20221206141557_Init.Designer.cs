@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MCard40.Web.Migrations
 {
     [DbContext(typeof(MCard40WebContext))]
-    [Migration("20221123055601_Init")]
+    [Migration("20221206141557_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

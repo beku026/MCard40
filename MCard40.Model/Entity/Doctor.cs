@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,5 +54,7 @@ public class Doctor : IEntity<int>
 
     public virtual List<CardPage> CardPages { get; set; }
     public virtual List<Week> Weeks { get; set; }
+    public string? UserId { get; set; }
+    [ForeignKey("UserId")]
     public virtual User User { get; set; }
 }

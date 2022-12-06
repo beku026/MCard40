@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MCard40.Data.Migrations
 {
     [DbContext(typeof(MCard40DbContext))]
-    [Migration("20221202103703_init")]
-    partial class init
+    [Migration("20221206141442_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -106,6 +106,7 @@ namespace MCard40.Data.Migrations
                         .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(250)");
 
                     b.HasKey("Id");
@@ -250,7 +251,9 @@ namespace MCard40.Data.Migrations
                 {
                     b.HasOne("MCard40.Model.Identity.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });

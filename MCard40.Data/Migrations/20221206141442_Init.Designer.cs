@@ -24,7 +24,7 @@ namespace MCard40.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("MCard40.Model.Entity.CardPage", b =>
+            modelBuilder.Entity("MCard40.Model.IEntity.CardPage", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -62,7 +62,7 @@ namespace MCard40.Data.Migrations
                     b.ToTable("CardPages");
                 });
 
-            modelBuilder.Entity("MCard40.Model.Entity.Doctor", b =>
+            modelBuilder.Entity("MCard40.Model.IEntity.Doctor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -119,7 +119,7 @@ namespace MCard40.Data.Migrations
                     b.ToTable("Doctors");
                 });
 
-            modelBuilder.Entity("MCard40.Model.Entity.Patient", b =>
+            modelBuilder.Entity("MCard40.Model.IEntity.Patient", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -166,7 +166,7 @@ namespace MCard40.Data.Migrations
                     b.ToTable("Patients");
                 });
 
-            modelBuilder.Entity("MCard40.Model.Entity.Week", b =>
+            modelBuilder.Entity("MCard40.Model.IEntity.Week", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -187,7 +187,7 @@ namespace MCard40.Data.Migrations
                     b.ToTable("Weeks");
                 });
 
-            modelBuilder.Entity("MCard40.Model.Entity.WorkDay", b =>
+            modelBuilder.Entity("MCard40.Model.IEntity.WorkDay", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -228,15 +228,15 @@ namespace MCard40.Data.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("MCard40.Model.Entity.CardPage", b =>
+            modelBuilder.Entity("MCard40.Model.IEntity.CardPage", b =>
                 {
-                    b.HasOne("MCard40.Model.Entity.Doctor", "Doctor")
+                    b.HasOne("MCard40.Model.IEntity.Doctor", "Doctor")
                         .WithMany("CardPages")
                         .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MCard40.Model.Entity.Patient", "Patient")
+                    b.HasOne("MCard40.Model.IEntity.Patient", "Patient")
                         .WithMany("CardPages")
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -247,7 +247,7 @@ namespace MCard40.Data.Migrations
                     b.Navigation("Patient");
                 });
 
-            modelBuilder.Entity("MCard40.Model.Entity.Doctor", b =>
+            modelBuilder.Entity("MCard40.Model.IEntity.Doctor", b =>
                 {
                     b.HasOne("MCard40.Model.Identity.User", "User")
                         .WithMany()
@@ -258,7 +258,7 @@ namespace MCard40.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("MCard40.Model.Entity.Patient", b =>
+            modelBuilder.Entity("MCard40.Model.IEntity.Patient", b =>
                 {
                     b.HasOne("MCard40.Model.Identity.User", "User")
                         .WithMany()
@@ -267,9 +267,9 @@ namespace MCard40.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("MCard40.Model.Entity.Week", b =>
+            modelBuilder.Entity("MCard40.Model.IEntity.Week", b =>
                 {
-                    b.HasOne("MCard40.Model.Entity.Doctor", "Doctor")
+                    b.HasOne("MCard40.Model.IEntity.Doctor", "Doctor")
                         .WithMany("Weeks")
                         .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -278,9 +278,9 @@ namespace MCard40.Data.Migrations
                     b.Navigation("Doctor");
                 });
 
-            modelBuilder.Entity("MCard40.Model.Entity.WorkDay", b =>
+            modelBuilder.Entity("MCard40.Model.IEntity.WorkDay", b =>
                 {
-                    b.HasOne("MCard40.Model.Entity.Week", "Week")
+                    b.HasOne("MCard40.Model.IEntity.Week", "Week")
                         .WithMany("WorkDays")
                         .HasForeignKey("WeekId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -289,19 +289,19 @@ namespace MCard40.Data.Migrations
                     b.Navigation("Week");
                 });
 
-            modelBuilder.Entity("MCard40.Model.Entity.Doctor", b =>
+            modelBuilder.Entity("MCard40.Model.IEntity.Doctor", b =>
                 {
                     b.Navigation("CardPages");
 
                     b.Navigation("Weeks");
                 });
 
-            modelBuilder.Entity("MCard40.Model.Entity.Patient", b =>
+            modelBuilder.Entity("MCard40.Model.IEntity.Patient", b =>
                 {
                     b.Navigation("CardPages");
                 });
 
-            modelBuilder.Entity("MCard40.Model.Entity.Week", b =>
+            modelBuilder.Entity("MCard40.Model.IEntity.Week", b =>
                 {
                     b.Navigation("WorkDays");
                 });

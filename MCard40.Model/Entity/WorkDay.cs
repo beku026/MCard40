@@ -1,8 +1,9 @@
 ﻿using MCard40.Model.Enums;
+using MCard40.Model.Interfaces;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MCard40.Model.Entity;
-public class WorkDay : Entity<int>
+public class WorkDay : IEntity<int>
 {
     /// ID
     public int Id { get; set; }

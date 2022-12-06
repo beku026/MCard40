@@ -47,7 +47,7 @@ namespace MCard40.Web.Controllers
                 return NotFound();
             }
 
-            return View(doctor);
+            return View(patient);
         }
 
         // GET: Patient/Create
@@ -118,7 +118,7 @@ namespace MCard40.Web.Controllers
             var patient = _service.Delete(id);
             if (patient == null)
             {
-                return Problem("Entity set 'MCard40DbContext.Patient'  is null.");
+                return Problem("IEntity set 'MCard40DbContext.Patient'  is null.");
             }
             return RedirectToAction(nameof(Index));
         }

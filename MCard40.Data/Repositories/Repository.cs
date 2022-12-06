@@ -1,5 +1,4 @@
 ﻿using MCard40.Data.Context;
-using MCard40.Model.Entity;
 using MCard40.Model.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,7 +12,7 @@ using System.Threading.Tasks;
 namespace MCard40.Data.Repositories
 {
     public class Repository<T, TId> : IRepository<T, TId>
-              where T : Entity<TId>
+              where T : class,IEntity<TId>
     {
         private readonly MCard40DbContext _context;
         public Repository(MCard40DbContext context)
@@ -27,14 +26,6 @@ namespace MCard40.Data.Repositories
         /// <param name="model"></param>
         public async Task<T> Create(T model)
         {
-            //if (model == null || _context.Set<T>() == null)
-            //{
-            //    return null;
-            //}
-
-
-            //await _context.AddAsync(model);
-            //return model;
             if (_context.Set<T>() == null)
             {
                 return null;
@@ -45,6 +36,17 @@ namespace MCard40.Data.Repositories
 
             return a.Entity;
         }
+        public List<T> ReadAll()
+        {
+            if (_context.Set<T>() == null)
+            {
+                return null;
+            }
+
+            var list = _context.Set<T>().ToList();
+
+            return list;
+        }
 
         /// <summary>
         /// удаление модельки из бд
@@ -52,17 +54,6 @@ namespace MCard40.Data.Repositories
         /// <param name="model"></param>
         public T Delete(T model)
         {
-            //if (model == null || _context.Set<T>() == null)
-            //{
-            //    return null;
-            //}
-
-            //if (_context.Set<T>().Any(x => x.Id == model.Id))
-            //{
-            //    _context.Remove(model);
-            //}
-
-            //return model;
             if (_context.Set<T>() == null)
             {
                 return null;

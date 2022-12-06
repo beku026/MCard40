@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MCard40.Model.Enums;
+using MCard40.Model.Interfaces;
 
 namespace MCard40.Model.Entity;
-public class Week : Entity<int>
+public class Week : IEntity<int>
 {
     /// Id
     public int Id { get; set; }

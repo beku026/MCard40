@@ -10,7 +10,7 @@ namespace MCard40.Infrastucture.Services.Interfaces
 {
     public interface IPatientService
     {
-        void Add(Patient doctor);
+        void Add(Patient patient);
         Patient GetById(int? id);
         Patient Update(int id, Patient patient);
         IEnumerable<Patient> GetFiltered(string sortOrder, string searchString);

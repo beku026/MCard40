@@ -41,8 +41,8 @@ namespace MCard40.Web.Controllers
         // GET: Patient/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            var doctor = _service.GetPatientDetails(id);
-            if (doctor == null)
+            var patient = _service.GetPatientDetails(id);
+            if (patient == null)
             {
                 return NotFound();
             }

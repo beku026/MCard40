@@ -52,7 +52,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=TypesDoctor}/{action=Index}/{id?}");
+    pattern: "{controller=TypesDoctor}/{action=Price}/{id?}");
 
 app.MapRazorPages();
 

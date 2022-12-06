@@ -1,0 +1,47 @@
+﻿@model MCard40.Model.Entity.WorkDay
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>WorkDay</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StartWork" class="control-label"></label>
+                <input asp-for="StartWork" class="form-control" />
+                <span asp-validation-for="StartWork" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FinalWork" class="control-label"></label>
+                <input asp-for="FinalWork" class="form-control" />
+                <span asp-validation-for="FinalWork" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employment_type" class="control-label"></label>
+                <select asp-for="Employment_type" class="form-control"></select>
+                <span asp-validation-for="Employment_type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WeekId" class="control-label"></label>
+                <select asp-for="WeekId" class ="form-control" asp-items="ViewBag.WeekId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

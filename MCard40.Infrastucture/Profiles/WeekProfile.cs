@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using MCard40.Infrastucture.ViewModels.Week;
+using MCard40.Infrastucture.ViewModels.WeekWorkDay;
 using MCard40.Model.Entity;
 
 namespace MCard40.Infrastucture.Profiles;

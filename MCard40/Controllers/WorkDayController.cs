@@ -11,90 +11,90 @@ using MCard40.Data.Context;
 
 namespace MCard40.Web.Controllers
 {
-	public class WeekController : Controller
-	{
+    public class WorkDayController : Controller
+    {
         private readonly MCard40DbContext _context;
 
-        public WeekController(MCard40DbContext context)
+        public WorkDayController(MCard40DbContext context)
         {
             _context = context;
         }
 
-        // GET: Week
+        // GET: WorkDay
         public async Task<IActionResult> Index()
         {
-            var mCard40DbContext = _context.Weeks.Include(w => w.Doctor);
+            var mCard40DbContext = _context.WorkDays.Include(w => w.Week);
             return View(await mCard40DbContext.ToListAsync());
         }
 
-        // GET: Week/Details/5
+        // GET: WorkDay/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Weeks == null)
+            if (id == null || _context.WorkDays == null)
             {
                 return NotFound();
             }
 
-            var week = await _context.Weeks
-                .Include(w => w.Doctor)
+            var workDay = await _context.WorkDays
+                .Include(w => w.Week)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (week == null)
+            if (workDay == null)
             {
                 return NotFound();
             }
 
-            return View(week);
+            return View(workDay);
         }
 
-        // GET: Week/Create
+        // GET: WorkDay/Create
         public IActionResult Create()
         {
-            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "Address_home");
+            ViewData["WeekId"] = new SelectList(_context.Set<Week>(), "Id", "Id");
             return View();
         }
 
-        // POST: Week/Create
+        // POST: WorkDay/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DoctorId,DayWeeks")] Week week)
+        public async Task<IActionResult> Create([Bind("Id,StartWork,FinalWork,Employment_type,WeekId")] WorkDay workDay)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(week);
+                _context.Add(workDay);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "Address_home", week.DoctorId);
-            return View(week);
+            ViewData["WeekId"] = new SelectList(_context.Set<Week>(), "Id", "Id", workDay.WeekId);
+            return View(workDay);
         }
 
-        // GET: Week/Edit/5
+        // GET: WorkDay/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Weeks == null)
+            if (id == null || _context.WorkDays == null)
             {
                 return NotFound();
             }
 
-            var week = await _context.Weeks.FindAsync(id);
-            if (week == null)
+            var workDay = await _context.WorkDays.FindAsync(id);
+            if (workDay == null)
             {
                 return NotFound();
             }
-            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "Address_home", week.DoctorId);
-            return View(week);
+            ViewData["WeekId"] = new SelectList(_context.Set<Week>(), "Id", "Id", workDay.WeekId);
+            return View(workDay);
         }
 
-        // POST: Week/Edit/5
+        // POST: WorkDay/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,DoctorId,DayWeeks")] Week week)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,StartWork,FinalWork,Employment_type,WeekId")] WorkDay workDay)
         {
-            if (id != week.Id)
+            if (id != workDay.Id)
             {
                 return NotFound();
             }
@@ -103,12 +103,12 @@ namespace MCard40.Web.Controllers
             {
                 try
                 {
-                    _context.Update(week);
+                    _context.Update(workDay);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!WeekExists(week.Id))
+                    if (!WorkDayExists(workDay.Id))
                     {
                         return NotFound();
                     }
@@ -119,51 +119,51 @@ namespace MCard40.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DoctorId"] = new SelectList(_context.Set<Doctor>(), "Id", "Address_home", week.DoctorId);
-            return View(week);
+            ViewData["WeekId"] = new SelectList(_context.Set<Week>(), "Id", "Id", workDay.WeekId);
+            return View(workDay);
         }
 
-        // GET: Week/Delete/5
+        // GET: WorkDay/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Weeks == null)
+            if (id == null || _context.WorkDays == null)
             {
                 return NotFound();
             }
 
-            var week = await _context.Weeks
-                .Include(w => w.Doctor)
+            var workDay = await _context.WorkDays
+                .Include(w => w.Week)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (week == null)
-		{
+            if (workDay == null)
+            {
                 return NotFound();
-		}
+            }
 
-            return View(week);
+            return View(workDay);
         }
 
-        // POST: Week/Delete/5
+        // POST: WorkDay/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Weeks == null)
+            if (_context.WorkDays == null)
             {
-                return Problem("Entity set 'MCard40WebContext.Week'  is null.");
+                return Problem("Entity set 'MCard40WebContext.WorkDay'  is null.");
             }
-            var week = await _context.Weeks.FindAsync(id);
-            if (week != null)
-		{
-                _context.Weeks.Remove(week);
+            var workDay = await _context.WorkDays.FindAsync(id);
+            if (workDay != null)
+            {
+                _context.WorkDays.Remove(workDay);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-		}
-		
-        private bool WeekExists(int id)
-        {
-          return _context.Weeks.Any(e => e.Id == id);
         }
-	}
+
+        private bool WorkDayExists(int id)
+        {
+          return _context.WorkDays.Any(e => e.Id == id);
+        }
+    }
 }

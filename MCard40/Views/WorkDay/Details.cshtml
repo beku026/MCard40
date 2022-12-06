@@ -1,0 +1,42 @@
+﻿@model MCard40.Model.Entity.WorkDay
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>WorkDay</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StartWork)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartWork)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FinalWork)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FinalWork)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Employment_type)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Employment_type)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Week)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Week.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

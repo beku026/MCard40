@@ -12,9 +12,6 @@ public class Week : IEntity<int>
     /// Id
     public int Id { get; set; }
 
-    /// Расписание дня
-    //public int DayId { get; set; }
-
     /// Врач
     public int DoctorId { get; set; }
 

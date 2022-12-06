@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using MCard40.Model.Enums;
 
-namespace MCard40.Infrastucture.ViewModels.Week;
+namespace MCard40.Infrastucture.ViewModels.WeekWorkDay;
 public class WeekVM
 {
     public int Id { get; set; }

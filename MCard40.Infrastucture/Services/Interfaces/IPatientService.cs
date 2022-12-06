@@ -14,7 +14,7 @@ namespace MCard40.Infrastucture.Services.Interfaces
         Patient GetById(int? id);
         Patient Update(int id, Patient patient);
         IEnumerable<Patient> GetFiltered(string sortOrder, string searchString);
-        Patient GetDoctorDetails(int? id);
+        Patient GetPatientDetails(int? id);
         Patient Delete(int id);
     }
 }

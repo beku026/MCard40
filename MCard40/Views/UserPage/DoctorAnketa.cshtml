@@ -1,0 +1,74 @@
+﻿@using MCard40.Infrastucture.StaticClasses;
+@model MCard40.Model.Entity.Doctor
+
+@{
+    ViewData["Title"] = "Инфо";
+}
+<h1>Информация</h1>
+
+<div>
+    <h4>Доктор</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sex)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sex)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ITN)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ITN)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address_home)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address_home)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Post)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Post)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Experience)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Experience)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address_job)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address_job)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Degree)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Degree)
+        </dd>
+    </dl>
+</div>
+<div>
+
+    <a asp-action="DoctorAnketaEdit" asp-route-id="@Model?.Id">Редактировать</a>
+
+    <a asp-action="Index">Назад</a>
+</div>

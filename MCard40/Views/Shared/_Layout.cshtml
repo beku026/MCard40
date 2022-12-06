@@ -43,7 +43,12 @@
                         {
                             <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Создать аккаунт доктора</a>      
                         }
-
+                        @if (User.IsInRole(WC.Patient) || User.IsInRole(WC.Doctor))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="UserPage" asp-action="Index">Анкета</a>
+                            </li>
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

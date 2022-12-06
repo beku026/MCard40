@@ -1,6 +1,7 @@
 ﻿using MCard40.Model.Entity;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
+using MCard40.Model.Identity;
 
 namespace MCard40.Data.Configurations;
 public class DoctorConfig : IEntityTypeConfiguration<Doctor>
@@ -51,6 +52,5 @@ public class DoctorConfig : IEntityTypeConfiguration<Doctor>
         builder.Property(i => i.Degree)
             .HasColumnType("nvarchar(30)")
             .IsRequired();
-
     }
 }

@@ -37,5 +37,8 @@ public class Patient : Entity<int>
     public Disability? Disability { get; set; }
 
     public virtual List<CardPage> CardPages { get; set; }
+
+    public string? UserId { get; set; }
     public virtual User User { get; set; }
+
 }

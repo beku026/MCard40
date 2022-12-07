@@ -22,6 +22,9 @@ builder.Services.AddTransient<IRepository<Doctor, int>, Repository<Doctor, int>>
 builder.Services.AddTransient<IDoctorService, DoctorService>();
 builder.Services.AddTransient<IRepository<Patient, int>, Repository<Patient, int>>();
 builder.Services.AddTransient<IPatientService, PatientService>();
+builder.Services.AddTransient<IRepository<CardPage, int>, Repository<CardPage, int>>();
+builder.Services.AddTransient<ICardPageService, CardPageService>();
+
 
 builder.Services.AddDbContext<MCard40DbContext>(options => options.UseLazyLoadingProxies());
 builder.Services.AddRazorPages();

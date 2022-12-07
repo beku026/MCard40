@@ -36,7 +36,7 @@ namespace MCard40.Data.Migrations
                     Experience = table.Column<DateTime>(type: "date", nullable: false),
                     Address_job = table.Column<string>(type: "nvarchar(250)", nullable: false),
                     Degree = table.Column<string>(type: "nvarchar(30)", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(250)", nullable: false)
+                    UserId = table.Column<string>(type: "nvarchar(250)", nullable: true)
                 },
                 constraints: table =>
                 {

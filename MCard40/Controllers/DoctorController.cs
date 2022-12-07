@@ -4,6 +4,8 @@ using MCard40.Model.Entity;
 using MCard40.Web.Data;
 using MCard40.Data.Context;
 using MCard40.Infrastucture.Services.Interfaces;
+using MCard40.Model.Identity;
+using System.Security.Claims;
 //using X.PagedList;
 
 namespace MCard40.Web.Controllers
@@ -11,12 +13,13 @@ namespace MCard40.Web.Controllers
     public class DoctorController : Controller
     {
         private readonly IDoctorService _service;
-
-        public DoctorController(IDoctorService service)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public DoctorController(IDoctorService service, IHttpContextAccessor httpContextAccessor)
         {
             _service = service;
+            _httpContextAccessor = httpContextAccessor;
         }
-        
+        public string? UserId => _httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
         // GET: Doctors
         public IActionResult Index(string sortOrder, string searchString)
         {
@@ -68,6 +71,7 @@ namespace MCard40.Web.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             var doctor = _service.GetById(id);
+            ViewBag.UserId = UserId;
             if (doctor == null)
             {
                 return NotFound();
@@ -80,7 +84,7 @@ namespace MCard40.Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FullName,Age,Sex,ITN,Address_home,Post,Experience,Address_job,Degree")] Doctor doctor)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FullName,Age,Sex,ITN,Address_home,Post,Experience,Address_job,Degree, UserId")] Doctor doctor)
         {
             if (id != doctor.Id)
             {

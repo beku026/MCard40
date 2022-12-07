@@ -10,6 +10,7 @@ namespace MCard40.Infrastucture.Services.Interfaces
     public interface ICardPageService
     {
         public List<CardPage> GetAll();
+        public List<CardPage> GetAll(int patientId);
         void Add(CardPage cardPage);
         CardPage GetById(int? id);
         CardPage Update(int id, CardPage cardPage);

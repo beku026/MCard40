@@ -78,5 +78,10 @@ namespace MCard40.Infrastucture.Services.Implementations
             }
             return cardPage;
         }
+
+        public List<CardPage> GetAll(int patientId)
+        {
+            return _repository.Get(x => x.PatientId == patientId).ToList();
+        }
     }
 }

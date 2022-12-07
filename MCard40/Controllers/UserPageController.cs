@@ -21,12 +21,14 @@ public class UserPageController : Controller
     private readonly IDoctorService _serviceDoc;
     private readonly IPatientService _servicePat;
     private readonly IHttpContextAccessor _httpContextAccessor;
-    public UserPageController(UserManager<MCardUser> userManager, MCard40DbContext dbContext, IHttpContextAccessor httpContextAccessor, MCard40WebContext identityDbContext)
+    public UserPageController(UserManager<MCardUser> userManager, MCard40DbContext dbContext, IHttpContextAccessor httpContextAccessor, MCard40WebContext identityDbContext, IDoctorService serviceDoc, IPatientService servicePat)
     {
         _userManager = userManager;
         _dbContext = dbContext;
         _httpContextAccessor = httpContextAccessor;
         _identityDbContext = identityDbContext;
+        _serviceDoc = serviceDoc;
+        _servicePat = servicePat;
     }
 
     public string? UserId => _httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -95,7 +97,7 @@ public class UserPageController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DoctorCreateAnketa([Bind("Id,FullName,Age,ITN,Address_home,Post,Experience,Address_job,Degree,UserId")] Doctor doctor)
+    public async Task<IActionResult> DoctorCreateAnketa([Bind("Id,FullName,Age,Sex,ITN,Address_home,Post,Experience,Address_job,Degree, UserId")] Doctor doctor)
     {
         _dbContext.Add(doctor);
         await _dbContext.SaveChangesAsync();
@@ -108,6 +110,7 @@ public class UserPageController : Controller
     {
         var user = await _userManager.FindByIdAsync(UserId);
         var doctor = _dbContext.Doctors.Include(x => x.User).FirstOrDefault(x => x.User.Id == user.Id);
+        ViewBag.UserId = UserId;
         if (doctor == null)
         {
             return NotFound();
@@ -117,7 +120,7 @@ public class UserPageController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DoctorAnketaEdit([Bind("Id,FullName,Age,Sex,ITN,Address,BloodGroup,Disability")] Doctor doctor, int id)
+    public async Task<IActionResult> DoctorAnketaEdit([Bind("Id,FullName,Age,Sex,ITN,Address_home,Post,Experience,Address_job,Degree, UserId")] Doctor doctor, int id)
     {
         if (id != doctor.Id)
         {
@@ -128,13 +131,15 @@ public class UserPageController : Controller
         {
             return NotFound();
         }
+
         return RedirectToAction(nameof(Index));
     }
 
     public async Task<IActionResult> PatientAnketaEdit(Patient pat)
     {
         var user = await _userManager.FindByIdAsync(UserId);
-        var patient = _dbContext.Patients.Include(x => x.User).FirstOrDefault(x => x.User.Id == user.Id);
+        var patient = await _dbContext.Patients.Include(x => x.User).FirstOrDefaultAsync(x => x.User.Id == user.Id);
+        ViewBag.UserId = UserId;
         if (patient == null)
         {
             return NotFound();
@@ -145,7 +150,7 @@ public class UserPageController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> PatientAnketaEdit([Bind("Id,FullName,Age,Sex,ITN,Address,BloodGroup,Disability")] Patient patient, int id)
+    public async Task<IActionResult> PatientAnketaEdit([Bind("Id,FullName,Age,Sex,ITN,Address,BloodGroup,Disability,UserId")] Patient patient, int id)
     {
         if (id != patient.Id)
         {

@@ -54,7 +54,7 @@ public class Doctor : IEntity<int>
 
     public virtual List<CardPage> CardPages { get; set; }
     public virtual List<Week> Weeks { get; set; }
+    [Required]
     public string? UserId { get; set; }
-    [ForeignKey("UserId")]
     public virtual User User { get; set; }
 }

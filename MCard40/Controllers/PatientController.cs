@@ -75,17 +75,6 @@ namespace MCard40.Web.Controllers
             return View();
         }
 
-        // POST: Patient/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FullName,Age,Sex,ITN,Address,BloodGroup,Disability")] Patient patient)
-        {
-            _servicePat.Add(patient);
-            return RedirectToAction(nameof(Index));
-
-        }
 
         // GET: Patient/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -114,31 +103,6 @@ namespace MCard40.Web.Controllers
             if (patient == null)
             {
                 return NotFound();
-            }
-            return RedirectToAction(nameof(Index));
-        }
-
-        // GET: Patient/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            var patient = _servicePat.GetById(id);
-            if (patient == null)
-            {
-                return NotFound();
-            }
-
-            return View(patient);
-        }
-
-        // POST: Patient/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var patient = _servicePat.Delete(id);
-            if (patient == null)
-            {
-                return Problem("IEntity set 'MCard40DbContext.Patient'  is null.");
             }
             return RedirectToAction(nameof(Index));
         }

@@ -31,62 +31,66 @@
                 <h3>
                     <a class="med" asp-area="" asp-controller="Home" asp-action="Index">
                         @*<img src="~/image/MCard40.png" style="position:absolute; top:-40px; left:2px;width:250px; height:180px">*@
-                        MCard40</a>
+                        MCard40
+                    </a>
                 </h3>
             </div>
 
             <ul class="list-unstyled components">
                 @*  <p>Dummy Heading</p>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li>
+                <a href="#">Home 1</a>
+                </li>
 
-                    </ul>
+                </ul>
                 </li>*@
-                
+
                 <li class="nav-item">
-                    <a  asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
+                    <a asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a  asp-area="" asp-controller="Home" asp-action="Privacy">Приватность</a>
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Приватность</a>
                 </li>
                 <li class="nav-item">
-                    <a  asp-area="" asp-controller="TypesDoctor" asp-action="Index">Типы врачей</a>
+                    <a asp-area="" asp-controller="TypesDoctor" asp-action="Index">Типы врачей</a>
                 </li>
                 <li class="nav-item">
-                    <a  asp-area="" asp-controller="TypesDoctor" asp-action="Price">Прейскурант</a>
+                    <a asp-area="" asp-controller="TypesDoctor" asp-action="Price">Прейскурант</a>
                 </li>
                 @if (User.IsInRole(WC.Admin) || User.IsInRole(WC.Patient) || User.IsInRole(WC.Doctor))
                 {
                     <li class="nav-item">
-                        <a  asp-area="" asp-controller="Doctor" asp-action="Index">Доктор</a>
+                        <a asp-area="" asp-controller="Doctor" asp-action="Index">Доктор</a>
                     </li>
                 }
                 @if (User.IsInRole(WC.Admin) || User.IsInRole(WC.Doctor))
                 {
                     <li class="nav-item">
-                        <a  asp-area="" asp-controller="Patient" asp-action="Index">Пациент</a>
+                        <a asp-area="" asp-controller="Patient" asp-action="Index">Пациент</a>
                     </li>
                 }
                 @if (User.IsInRole(WC.Admin))
                 {
-                    <a  asp-area="Identity" asp-page="/Account/Register">Создать аккаунт доктора</a>
+                    <a asp-area="Identity" asp-page="/Account/Register">Создать аккаунт доктора</a>
                 }
-                <li class="nav-item">
-                    <a asp-area="" asp-controller="UserPage" asp-action="Index">Анкета</a>
-                </li>
+                @if (User.IsInRole(WC.Doctor) || User.IsInRole(WC.Patient))
+                {
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="UserPage" asp-action="Index">Анкета</a>
+                    </li>
+                }
             </ul>
 
             @*<ul class="list-unstyled CTAs">
-                <li>
-                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
-                </li>
-                <li>
-                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
-                </li>
+            <li>
+            <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+            </li>
+            <li>
+            <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+            </li>
             </ul>*@
         </nav>
 
@@ -95,10 +99,10 @@
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-                    @*                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MedicalCard</a>  *@                    
+                    @*                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MedicalCard</a>  *@
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-align-left"></i>
-                       @* <span>Toggle Sidebar</span>*@
+                        @* <span>Toggle Sidebar</span>*@
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
@@ -206,7 +210,7 @@
                         }
                         @if (User.IsInRole(WC.Admin))
                         {
-                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Создать аккаунт доктора</a>      
+                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Создать аккаунт доктора</a>
                         }
                         @if (User.IsInRole(WC.Patient) || User.IsInRole(WC.Doctor))
                         {

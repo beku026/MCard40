@@ -1,4 +1,5 @@
-﻿@model MCard40.Model.Entity.Patient
+﻿@using MCard40.Infrastucture.StaticClasses;
+@model MCard40.Model.Entity.Patient
 
 @{
     ViewData["Title"] = "Details";
@@ -55,6 +56,9 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    @if (User.IsInRole(WC.Admin))
+    {
+        <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> 
+    }
     <a asp-action="Index">Back to List</a>
 </div>

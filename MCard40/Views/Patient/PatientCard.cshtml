@@ -16,13 +16,7 @@
                 @Html.DisplayNameFor(model => model.Disease)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DiseaseInfo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Treatment)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Assessment)
+                @Html.DisplayNameFor(model => model.DateСreation)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Doctor)
@@ -36,21 +30,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Disease)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiseaseInfo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Treatment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Assessment)
-            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.DateСreation)
+            </th>
             <td>
                 @Html.DisplayFor(modelItem => item.Doctor.FullName)
             </td>
             <td>
-                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                @*<a asp-action="CardEdit" asp-route-id="@item.Id">Edit</a> |*@
+               @* <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
             </td>
         </tr>

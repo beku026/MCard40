@@ -4,6 +4,7 @@ using MCard40.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MCard40.Data.Migrations
 {
     [DbContext(typeof(MCard40DbContext))]
-    partial class MCard40DbContextModelSnapshot : ModelSnapshot
+    [Migration("20221207211143_CreateDateCardPage")]
+    partial class CreateDateCardPage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,7 +62,7 @@ namespace MCard40.Data.Migrations
 
                     b.HasIndex("PatientId");
 
-                    b.ToTable("CardPages", (string)null);
+                    b.ToTable("CardPages");
                 });
 
             modelBuilder.Entity("MCard40.Model.Entity.Doctor", b =>
@@ -117,7 +119,7 @@ namespace MCard40.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Doctors", (string)null);
+                    b.ToTable("Doctors");
                 });
 
             modelBuilder.Entity("MCard40.Model.Entity.Patient", b =>
@@ -164,7 +166,7 @@ namespace MCard40.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Patients", (string)null);
+                    b.ToTable("Patients");
                 });
 
             modelBuilder.Entity("MCard40.Model.Entity.Week", b =>
@@ -185,7 +187,7 @@ namespace MCard40.Data.Migrations
 
                     b.HasIndex("DoctorId");
 
-                    b.ToTable("Weeks", (string)null);
+                    b.ToTable("Weeks");
                 });
 
             modelBuilder.Entity("MCard40.Model.Entity.WorkDay", b =>
@@ -212,7 +214,7 @@ namespace MCard40.Data.Migrations
 
                     b.HasIndex("WeekId");
 
-                    b.ToTable("WorkDays", (string)null);
+                    b.ToTable("WorkDays");
                 });
 
             modelBuilder.Entity("MCard40.Model.Identity.User", b =>
@@ -226,7 +228,7 @@ namespace MCard40.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("MCard40.Model.Entity.CardPage", b =>

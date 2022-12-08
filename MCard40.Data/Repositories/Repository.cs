@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace MCard40.Data.Repositories
 {
+    /// <summary>
+    /// Репозиторий
+    /// </summary>
     public class Repository<T, TId> : IRepository<T, TId>
               where T : class,IEntity<TId>
     {
@@ -36,6 +39,11 @@ namespace MCard40.Data.Repositories
 
             return a.Entity;
         }
+
+        /// <summary>
+        /// Читать все
+        /// </summary>
+        /// <returns></returns>
         public List<T> ReadAll()
         {
             if (_context.Set<T>() == null)
@@ -65,6 +73,12 @@ namespace MCard40.Data.Repositories
 
             return model;
         }
+
+        /// <summary>
+        /// удаление по id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public T DeleteById(TId id)
         {
             var entity = ReadById(id);
@@ -90,10 +104,16 @@ namespace MCard40.Data.Repositories
             return a.Entity;
         }
 
+        /// <summary>
+        /// Существует
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool IsExists(TId id)
         {
             return _context.Set<T>().Any(entity => entity.Id.Equals(id));
         }
+
         /// <summary>
         /// Получение модельки по определенным условиям
         /// </summary>

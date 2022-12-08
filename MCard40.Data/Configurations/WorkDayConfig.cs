@@ -24,11 +24,9 @@ public class WorkDayConfig : IEntityTypeConfiguration<WorkDay>
             .IsRequired();
 
         builder.Property(i => i.StartWork)
-            //       .HasColumnType("time")
             .IsRequired();
 
         builder.Property(i => i.FinalWork)
-            //       .HasColumnType("time")
             .IsRequired();
     }
 }

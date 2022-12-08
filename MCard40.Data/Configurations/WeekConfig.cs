@@ -23,10 +23,6 @@ public class WeekConfig : IEntityTypeConfiguration<Week>
             .HasColumnType("int")
             .IsRequired();
 
-        //builder.Property(i => i.DayId)
-        //    .HasColumnType("int")
-        //    .IsRequired();
-
         builder.Property(i => i.DoctorId)
             .HasColumnType("int")
             .IsRequired();

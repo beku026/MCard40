@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -26,6 +27,11 @@ public class CardPage : IEntity<int>
 
     /// Важность записи
     public Assessment Assessment { get; set; }
+
+    /// Дата создания записи 
+    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode=true)]
+    [DataType(DataType.Date)]
+    public DateTime? DateСreation { get; set; }
     public int PatientId { get; set; }
     public int DoctorId { get; set; }
     public virtual Patient Patient { get; set; }

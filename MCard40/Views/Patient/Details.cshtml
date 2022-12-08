@@ -4,61 +4,103 @@
 @{
     ViewData["Title"] = "Details";
 }
+<link rel="stylesheet" href="~/css/Details.css" asp-append-version="true" />
 
-<h1>Details</h1>
+<h1>Информация</h1>
 
-<div>
-    <h4>Patient</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Age)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Sex)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Sex)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ITN)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ITN)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BloodGroup)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BloodGroup)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Disability)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Disability)
-        </dd>
-    </dl>
-</div>
-<div>
-    @if (User.IsInRole(WC.Admin))
-    {
-        <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> 
-    }
-    <a asp-action="Index">Back to List</a>
+<div class="container">
+    <div class="main-body">
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="~/image/pacientIcon.jpg" alt="Admin" class="rounded-circle" width="150">
+                            <div class="mt-3">
+                                <h4>Пациент</h4>
+                                <p class="text-secondary mb-1"> @Html.DisplayFor(model => model.FullName)</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">@Html.DisplayNameFor(model => model.FullName)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.FullName)
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">@Html.DisplayNameFor(model => model.Age)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.Age)
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">@Html.DisplayNameFor(model => model.Sex)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.Sex)
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">@Html.DisplayNameFor(model => model.ITN)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.ITN)
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">@Html.DisplayNameFor(model => model.Address)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.Address)
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">@Html.DisplayNameFor(model => model.BloodGroup)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.BloodGroup)
+                            </div>
+                        </div>
+                        <hr><div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">@Html.DisplayNameFor(model => model.Disability)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.Disability)
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-success ">Редактировать</a>
+                                <a asp-action="Index" class="btn btn-success">Назад</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>

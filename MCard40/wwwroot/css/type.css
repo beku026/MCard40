@@ -9,12 +9,13 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, 17rem);
     gap: 2rem;
+    margin-left: 40px;
 }
 
 .item {
     position: relative;
     height: 19rem;
-    background-color: lightGrey;
+    background-color: #c1ffc1;
     overflow-y: hidden;
     box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.1);
 }
@@ -22,7 +23,7 @@
     .item h3 {
         margin: 0;
         display: block;
-        background-color: turquoise;
+        background-color: #505050;
         padding: 1rem;
     }
 
@@ -55,7 +56,7 @@ img {
     width: 100%;
     top: 0;
     transition: transform 300ms;
-    background-color: #82ebe0;
+    background-color: #c1ffc1;
     transform: translate3d(0, calc(100% - 3.5rem), 0);
 }
 
@@ -66,4 +67,5 @@ img {
 
     .item__body p {
         margin: 0;
+        color: #505050;
     }

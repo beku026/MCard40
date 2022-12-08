@@ -47,13 +47,14 @@ a:focus {
     margin: 40px 0;
 }
 
-/* ---------------------------------------------------
+
+    /* ---------------------------------------------------
     SIDEBAR STYLE
 ----------------------------------------------------- */
-.med{
-    font-size: 25px;
-    color: white;
-}
+    .med {
+        font-size: 25px;
+        color: white;
+    }
 
 .wrapper {
     display: flex;
@@ -96,9 +97,9 @@ a:focus {
         text-decoration: none;
     }
 
-        #sidebar ul li a:hover {    /* при наведении*/
-            color: #368060;
-            background: #ddd; 
+        #sidebar ul li a:hover { /* при наведении*/
+            color: #505050;
+            background: #C1FFC1;
         }
 
     #sidebar ul li.active > a,

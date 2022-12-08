@@ -2,14 +2,29 @@
     ViewData["Title"] = "Home Page";
 }
 
+<link rel="stylesheet" href="~/about/css/layout.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/about/css/layout-rtl.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/about/css/animate.css" asp-append-version="true" />
+
+ <!-- GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+        <link href="vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+        <!-- PAGE LEVEL PLUGIN STYLES -->
+<link href="~/about/css/animate.css" rel="stylesheet">
+<link href="~/about/vendor/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- THEME STYLES -->
+<link href="~/about/css/layout.min.css" rel="stylesheet" type="text/css" />
 
 <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="d-block w-100" src="https://kartinkin.net/uploads/posts/2021-07/1627127894_11-kartinkin-com-p-zelyonii-fon-odnotonnii-bez-vsego-krasivo-12.png" alt="First slide">
-            <div class="inner-pic" style="width: 500px; height:500px;"><img style="width:100%; height:100%;" src="~/image/slide2.png"></div>
+            <img class="d-block w-100" src="https://phonoteka.org/uploads/posts/2022-02/thumbs/1644932323_9-phonoteka-org-p-biryuzovo-zelenii-fon-9.jpg" alt="First slide" height="550">
+            <div class="inner-pic" style="width: 420px; height:420px;"><img style="width:100%; height:100%;" src="~/image/slide2.png"></div>
             <div class="carousel-caption d-none d-md-block" style="position: absolute !important;
     top: 0 !important;
     left: 45% !important;">
@@ -25,7 +40,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="https://kartinkin.net/uploads/posts/2021-07/1627127894_11-kartinkin-com-p-zelyonii-fon-odnotonnii-bez-vsego-krasivo-12.png" alt="First slide">
+            <img class="d-block w-100" src="https://phonoteka.org/uploads/posts/2022-02/thumbs/1644932323_9-phonoteka-org-p-biryuzovo-zelenii-fon-9.jpg" alt="First slide" height="550">
             <div class="inner-pic" style="width: 400px; height:400px;"><img style="width:100%; height:100%;" src="~/image/slide3.png"></div>
             <div class="carousel-caption d-none d-md-block" style="position: absolute !important;
     top: 0 !important;
@@ -39,7 +54,7 @@
                 </div>
             </div>        </div>
         <div class="carousel-item">
-<img class="d-block w-100" src="https://kartinkin.net/uploads/posts/2021-07/1627127894_11-kartinkin-com-p-zelyonii-fon-odnotonnii-bez-vsego-krasivo-12.png" alt="First slide">
+            <img class="d-block w-100" src="https://phonoteka.org/uploads/posts/2022-02/thumbs/1644932323_9-phonoteka-org-p-biryuzovo-zelenii-fon-9.jpg" alt="First slide" height="550">
             <div class="inner-pic" style="width: 400px; height:400px;"><img style="width:100%; height:100%;" src="~/image/slide1.png"></div>
             <div class="carousel-caption d-none d-md-block" style="position: absolute !important;
     top: 0 !important;
@@ -72,6 +87,47 @@
 </div>
 
 
+<!-- About -->
+<div id="about">
+    <div class="content-lg container">
+        <center> <h1 style=" color:#505050 !important; position:absolute; top:670px;left: 500px">Наши преимущества</h1>  </center>
+
+        <!-- Masonry Grid -->
+        <div class="masonry-grid row">
+@*            <div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-1"></div>
+*@            <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4 sm-margin-b-30">
+                <div class="margin-b-60" >
+                    <h2 style="margin-left:8px !important; margin-right:8px; color:#505050 !important; " ">С Medesk данные пациентов в безопасности</h1>
+                    <p style="margin-left:8px !important; margin-right:8px; color:#505050 !important; ">Мы соблюдаем законы о безопасности данных;</p>
+                    <p style="margin-left:8px !important; margin-right:8px; color:#505050 !important; " ">Medesk имеет уникальную архитектуру данных, при которой медицинская информация и персональные данные хранятся раздельно;</p>
+                </div>
+                <img class="full-width img-responsive wow fadeInUp" src="~/image/pic1.jpg" alt="Portfolio Image" data-wow-duration=".3" data-wow-delay=".2s">
+            </div>
+            <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                <div class="margin-b-60">
+                    <img class="full-width img-responsive wow fadeInUp" src="~/image/pic3.jpg" alt="Portfolio Image" data-wow-duration=".3" data-wow-delay=".3s">
+                </div>
+                <h2 style="margin-left:8px !important; margin-right:8px; color:#505050 !important; " >Экономит время врача</h2>
+                <p style="margin-left:8px !important; margin-right:8px; color:#505050 !important; " > Медкартой Medesk может пользоваться доктор с любым уровнем технической подготовленности.</p>
+                <p style="margin-left:8px !important; margin-right:8px; color:#505050 !important; " >Получать дополнительное образование для работы с системой не потребуется</p>
+            </div>
+            <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                <div class="margin-t-60 margin-b-60">
+                    <h2 style="margin-left:8px !important; margin-right:8px; color:#505050 !important; ">
+                        MCard40 возвращает врачей в медицину
+                    </h2>
+                    <p style="margin-left:8px !important; margin-right:8px;  color:#505050 !important;">Врач не должен нести бремя административной нагрузки и тонуть в документации, в то время как он может принять больше больных и внимательнее к ним отнестись. </p>
+                </div>
+                <img class="full-width img-responsive wow fadeInUp" src="~/image/pic2.png" alt="Portfolio Image" data-wow-duration=".3" data-wow-delay=".4s">
+            </div>
+        </div>
+        <!-- End Masonry Grid -->
+    </div>
+</div>
+
+
+<!-- Back To Top -->
+<a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
 <script>
     let slideIndex = 0;
     showSlides();
@@ -99,3 +155,27 @@
 </script>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="~/js/layout.js" asp-append-version="true"></script>
+
+<!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- CORE PLUGINS -->
+<script src="~/about/vendor/jquery.min.js" type="text/javascript"></script>
+<script src="~/about/vendor/jquery-migrate.min.js" type="text/javascript"></script>
+<script src="~/about/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- PAGE LEVEL PLUGINS -->
+<script src="~/about/vendor/jquery.easing.js" type="text/javascript"></script>
+<script src="~/about/vendor/jquery.back-to-top.js" type="text/javascript"></script>
+<script src="~/about/vendor/jquery.smooth-scroll.js" type="text/javascript"></script>
+<script src="~/about/vendor/jquery.wow.min.js" type="text/javascript"></script>
+<script src="~/about/vendor/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
+<script src="~/about/vendor/masonry/jquery.masonry.pkgd.min.js" type="text/javascript"></script>
+<script src="~/about/vendor/masonry/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsXUGTFS09pLVdsYEE9YrO2y4IAncAO2U"></script>
+
+<!-- PAGE LEVEL SCRIPTS -->
+<script src="~/about/js/layout.min.js" type="text/javascript"></script>
+<script src="~/about/js/components/wow.min.js" type="text/javascript"></script>
+<script src="~/about/js/components/swiper.min.js" type="text/javascript"></script>
+<script src="~/about/js/components/masonry.min.js" type="text/javascript"></script>
+<script src="~/about/js/components/google-map.min.js" type="text/javascript"></script>

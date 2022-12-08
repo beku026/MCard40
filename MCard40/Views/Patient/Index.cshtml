@@ -4,10 +4,92 @@
 @{
     ViewData["Title"] = "Index";
 }
+<style>
+    .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+        .styled-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+
+        .styled-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+            .styled-table tbody tr:nth-of-type(even) {
+                background-color: #f3f3f3;
+            }
+
+            .styled-table tbody tr:last-of-type {
+                border-bottom: 2px solid #009879;
+            }
+
+</style>
 
 <h1>Поиск пациента</h1>
-
 @using (Html.BeginForm())
+{
+    <p>
+        Введите ФИО: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Поиск" />
+    </p>
+}
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            @Html.ActionLink("Сортировка по ФИО : ", "Index", new {sortOrder = ViewBag.NameSortParm})
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FullName)</th>
+            <th>@Html.DisplayNameFor(model => model.Age)</th>
+            <th>@Html.DisplayNameFor(model => model.Sex)</th>
+            <th>@Html.DisplayNameFor(model => model.ITN)</th>
+            <th>@Html.DisplayNameFor(model => model.Address)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td> @Html.DisplayFor(modelItem => item.FullName) </td>
+                <td>@Html.DisplayFor(modelItem => item.Age)</td>
+                <td>@Html.DisplayFor(modelItem => item.Sex)</td>
+                <td>@Html.DisplayFor(modelItem => item.ITN)</td>
+                <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                @if (User.IsInRole(WC.Admin))
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    </td>
+                }
+                else if (User.IsInRole(WC.Doctor))
+                {
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*@using (Html.BeginForm())
 {
     <p>
         Введите ФИО: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
@@ -79,3 +161,4 @@
 }
     </tbody>
 </table>
+*@

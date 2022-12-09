@@ -81,6 +81,7 @@
                 else if (User.IsInRole(WC.Doctor))
                 {
                     <td>
+                        <a asp-action="PatientCard" asp-route-id="@item.Id">MedCard</a> |
                         <a asp-action="Details" asp-route-id="@item.Id">Details</a>
                     </td>
                 }

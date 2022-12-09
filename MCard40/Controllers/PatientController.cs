@@ -148,36 +148,38 @@ namespace MCard40.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //public async Task<IActionResult> CardEdit(int? id)
-        //{
-        //    var cardPage = _serviceCard.GetById(id);
-        //    ViewBag.DocId = cardPage.DoctorId;
-        //    ViewBag.PatId = cardPage.PatientId;
-        //    if (cardPage == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(cardPage);
-        //}
+        public async Task<IActionResult> CardEdit(int? id)
+        {
+            var cardPage = _serviceCard.GetById(id);
+            var user = await _userManager.FindByIdAsync(UserId);
+            var doc = _dbContext.Doctors.Include(x => x.User).FirstOrDefault(x => x.User.Id == user.Id);
+            ViewBag.DocId = doc.Id;
+            //ViewBag.PatId = 
+            if (cardPage == null)
+            {
+                return NotFound();
+            }
+            return View(cardPage);
+        }
 
-        //// POST: CardPage/Edit/5
-        //// To protect from overposting attacks, enable the specific properties you want to bind to.
-        //// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> CardEdit(int id, [Bind("Id,Disease,DiseaseInfo,Treatment,Assessment, PatientId, DoctorId")] CardPage cardPage)
-        //{
-        //    if (id != cardPage.Id)
-        //    {
-        //        return NotFound();
-        //    }
-        //    cardPage.DateСreation = DateTime.Now;
-        //    cardPage = _serviceCard.Update(id, cardPage);
-        //    if (cardPage == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return RedirectToAction(nameof(Index));
-        //}
+        // POST: CardPage/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CardEdit(int id, [Bind("Id,Disease,DiseaseInfo,Treatment,Assessment, PatientId, DoctorId")] CardPage cardPage)
+        {
+            if (id != cardPage.Id)
+            {
+                return NotFound();
+            }
+            cardPage.DateСreation = DateTime.Now;
+            cardPage = _serviceCard.Update(id, cardPage);
+            if (cardPage == null)
+            {
+                return NotFound();
+            }
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

@@ -183,5 +183,16 @@ namespace MCard40.Web.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+        // GET:  CardPage/Details/5
+        public async Task<IActionResult> CardDetails(int? id)
+        {
+            var cardPage = _serviceCard.GetCardPageDetails(id);
+            if (cardPage == null)
+            {
+                return NotFound();
+            }
+
+            return View(cardPage);
+        }
     }
 }

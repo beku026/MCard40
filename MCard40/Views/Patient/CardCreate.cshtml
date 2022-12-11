@@ -3,10 +3,114 @@
 @{
     ViewData["Title"] = "Create";
 }
+<style>
 
-<h1>Create</h1>
+    * {
+        box-sizing: border-box;
+    }
 
-<h4>CardPage</h4>
+    body {
+        background: #e4ede6;
+    }
+
+    .card {
+        max-width: 700px;
+        margin: 50px auto 0;
+        padding: 20px;
+        background: #f5f5dc;
+        border: 10px solid transparent;
+        border-image: 10 repeating-linear-gradient(135deg, #6DE66D, #C1FFC1 10px, transparent 10px, transparent 20px, #505050 20px, #6DE66D 30px, transparent 30px, transparent 40px);
+        font-family: 'Playfair Display';
+        color: #605756;
+    }
+
+    .form-row {
+        margin-bottom: 15px;
+    }
+
+        .form-row input[type="text"], .form-row input[type="email"], .form-row textarea {
+            width: 100%;
+            padding: 0 10px;
+            line-height: 35px;
+            border-width: 0;
+            outline: none;
+            background: transparent url(https://html5book.ru/wp-content/uploads/2016/12/bg-form.png) bottom left repeat-x;
+            background-size: 8px 35px;
+            font-family: 'Playfair Display';
+        }
+
+        .form-row textarea {
+            background-attachment: local;
+            background-repeat: repeat;
+            resize: none;
+        }
+
+        .form-row input[type="submit"] {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background: #6DE66D;
+            border-width: 0;
+            cursor: pointer;
+            outline: none;
+            font-family: 'Playfair Display';
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #fffdee;
+            text-transform: uppercase;
+            transition: 1s cubic-bezier(.165, .84, .44, 1);
+        }
+
+        .form-row input[type=submit]:hover {
+            background: #1b802c;
+        }
+
+</style>
+<h3>Новая страница карты</h3>
+
+<form asp-action="CardCreate" class="card">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-row">
+        <label asp-for="Disease" class="control-label"></label>
+        <input asp-for="Disease" class="form-control" type="text" id="name" required>
+        <span asp-validation-for="Disease" class="text-danger"></span>
+    </div>
+
+    <div class="form-row">
+        <label asp-for="DiseaseInfo" class="control-label"></label>
+        <textarea asp-for="DiseaseInfo" class="form-control" rows="3" id="message" required></textarea>
+        <span asp-validation-for="DiseaseInfo" class="text-danger"></span>
+    </div>
+    <div class="form-row">
+        <label asp-for="Treatment" class="control-label"></label>
+        <textarea asp-for="Treatment" class="form-control" rows="3" id="message" required></textarea>
+        <span asp-validation-for="Treatment" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Assessment" class="control-label"></label>
+        <select asp-for="Assessment" class="form-control" asp-items="Html.GetEnumSelectList<Assessment>()"></select>
+        <span asp-validation-for="Assessment" class="text-danger"></span>
+    </div>
+    <div class="form-group" hidden="hidden">
+        <label asp-for="PatientId" class="control-label"></label>
+        <input asp-for="PatientId" class="form-control" value="@ViewBag.PatientId" />
+    </div>
+
+    <div class="form-row">
+        <input type="submit" value="Сохранить" class="btn btn-success" />
+
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index" style="display: inline-block;
+    background: #8C959D; 
+    color: #fff; 
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    border-radius: 3px;">Вернуться назад</a>
+</div>
+@*
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -41,11 +145,11 @@
             </div>
         </form>
     </div>
-</div>
-
+</div>*@
+@*
 <div>
     <a asp-action="Index">Back to List</a>
-</div>
+</div>*@
 
 @section Scripts {
     @{

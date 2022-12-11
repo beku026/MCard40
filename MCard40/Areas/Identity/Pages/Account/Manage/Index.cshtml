@@ -4,8 +4,18 @@
     ViewData["Title"] = "Профиль";
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
+<style>
+    .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+        color: #fff;
+        background-color: #28a745;
+    }
 
-<h3>@ViewData["Title"]</h3>
+    .nav-link {
+        color: #2a7e3c;
+        font-weight: 500;
+    }
+</style>
+<h3 class="but">@ViewData["Title"]</h3>
 <partial name="_StatusMessage" for="StatusMessage" />
 <div class="row">
     <div class="col-md-6">
@@ -20,7 +30,7 @@
                 <label asp-for="Input.PhoneNumber" class="form-label"></label>
                 <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
             </div>
-            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-primary">Сохранить</button>
+            <button id="update-profile-button" type="submit" class="w-100 btn btn-lg btn-success">Сохранить</button>
         </form>
     </div>
 </div>

@@ -4,7 +4,17 @@
     ViewData["Title"] = "Управление электронной почтой";
     ViewData["ActivePage"] = ManageNavPages.Email;
 }
+<style>
+    .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+        color: #fff;
+        background-color: #28a745;
+    }
 
+    .nav-link {
+        color: #2a7e3c;
+        font-weight: 500;
+    }
+</style>
 <h3>@ViewData["Title"]</h3>
 <partial name="_StatusMessage" for="StatusMessage" />
 <div class="row">
@@ -34,7 +44,7 @@
                 <label asp-for="Input.NewEmail" class="form-label"></label>
                 <span asp-validation-for="Input.NewEmail" class="text-danger"></span>
             </div>
-            <button id="change-email-button" type="submit" asp-page-handler="ChangeEmail" class="w-100 btn btn-lg btn-primary">Изменить адрес электронной почты</button>
+            <button id="change-email-button" type="submit" asp-page-handler="ChangeEmail" class="w-100 btn btn-lg btn-success">Изменить адрес электронной почты</button>
         </form>
     </div>
 </div>

@@ -4,7 +4,18 @@
     ViewData["Title"] = "Личные данные";
     ViewData["ActivePage"] = ManageNavPages.PersonalData;
 }
+<style>
+    .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+        color: #fff;
+        background-color: #28a745;
+    }
 
+    .nav-link {
+        color: #2a7e3c;
+        font-weight: 500;
+    }
+
+</style>
 <h3>@ViewData["Title"]</h3>
 
 <div class="row">

@@ -1,0 +1,79 @@
+﻿@using MCard40.Infrastucture.StaticClasses;
+@model MCard40.Model.Entity.CardPage
+@{
+    ViewData["Title"] = "CardDetails";
+}
+
+<h2>Детали о посещении </h2>
+
+<div class="container">
+    <div class="main-body">
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="~/image/pacientIcon.jpg" alt="Admin" class="rounded-circle" width="150">
+                            <div class="mt-3">
+                                <h4>Пациент</h4>
+@*                                <p class="text-secondary mb-1"> @Html.DisplayFor(model => model.FullName)</p>
+*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">@Html.DisplayNameFor(model => model.Disease)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.Disease)
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">@Html.DisplayNameFor(model => model.DiseaseInfo)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.DiseaseInfo)
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">@Html.DisplayNameFor(model => model.Treatment)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.Treatment)
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">@Html.DisplayNameFor(model => model.Assessment)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.Assessment)
+                            </div>
+                        </div>
+                        <hr>
+                        
+                        <div class="row">
+                            <div class="col-sm-12">
+@*                                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-success ">Редактировать</a>
+*@                                <a asp-action="Index" class="btn btn-success">Назад</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+﻿
+<style>
+    .wrap {
+        background: #505050;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        box-sizing: border-box;
+    }
+
+    .flex {
+        display: flex;
+        justify-content: center;
+    }
+
+    h2 {
+        color: #fff;
+        letter-spacing: 1px;
+    }
+
+    .btnn {
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        width: 120px;
+        font-weight: bold;
+        height: 50px;
+        transition: 0.08s;
+        border: none;
+        background: #fff;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 40px 5px;
+    }</style>
+<div class="wrap">
+    @*    <h3>Smile</h3>
+    *@
+    <div class="flex">
+        <h2 class="opros">Вам понравилось наше web-приложение?</h2>
+    </div>
+    <div class="flex">
+        <div class="board">
+            <button id="btn1" class="btnn">Да</button>
+            <button id="btn" class="btnn">Нет</button>
+        </div>
+    </div>
+</div>
+<script>
+    let btn1 = document.querySelector('#btn1');
+    let opros = document.querySelector('.opros');
+
+    const random = (min, max) => {
+        const rand = min + Math.random() * (max - min + 1);
+        return Math.floor(rand);
+    }
+
+    let btn = document.querySelector('#btn');
+    btn.addEventListener('mouseenter', () => {
+        btn.style.left = `${random(0, 90)}%`;
+        btn.style.top = `${random(0, 90)}%`;
+    })
+
+    btn.addEventListener('click', function () {
+        opros.textContent = 'Ошибка повторите попытку!!!'
+    })
+
+    btn1.addEventListener('click', function () {
+        opros.textContent = 'Спасибо за честность!!!'
+    })</script>

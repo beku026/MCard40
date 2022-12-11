@@ -17,15 +17,23 @@ public class CardPage : IEntity<int>
     public int Id { get; set; }
 
     /// Болезнь
+    [Required(ErrorMessage = "Обязательно укажите болезнь")]
+    [Display(Name = "Болезнь")]
     public string Disease { get; set; }
 
     /// Информация о болезни пациента
+    [Required(ErrorMessage = "Обязательно укажите информацию о болезни")]
+    [Display(Name = "Информация о болезни")]
     public string DiseaseInfo { get; set; }
 
     /// Лечение
+    [Required(ErrorMessage = "Обязательно укажите лечение")]
+    [Display(Name = "Лечение")]
     public string Treatment { get; set; }
 
     /// Важность записи
+    [Required(ErrorMessage = "Обязательно поставьте оценку")]
+    [Display(Name = "Оценка врача")]
     public Assessment Assessment { get; set; }
 
     /// Дата создания записи 

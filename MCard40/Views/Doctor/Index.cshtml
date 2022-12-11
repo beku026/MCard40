@@ -22,7 +22,7 @@
 
         .styled-table th,
         .styled-table td {
-            padding: 12px 15px;
+            padding: 8px 15px;
         }
 
         .styled-table tbody tr {
@@ -76,14 +76,14 @@
                 @if (User.IsInRole(WC.Admin))
                 {
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id"class="btn btn-sm btn-info">Details</a>
                     </td>
                 }
                 else if (User.IsInRole(WC.Doctor))
                 {
                     <td>
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
                     </td>
                 }
             </tr>

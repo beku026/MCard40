@@ -148,17 +148,19 @@ namespace MCard40.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
         public async Task<IActionResult> CardEdit(int? id)
         {
             var cardPage = _serviceCard.GetById(id);
-            var user = await _userManager.FindByIdAsync(UserId);
-            var doc = _dbContext.Doctors.Include(x => x.User).FirstOrDefault(x => x.User.Id == user.Id);
-            ViewBag.DocId = doc.Id;
-            //ViewBag.PatId = 
+            //var user = await _userManager.FindByIdAsync(UserId);
+            //var doc = _dbContext.Doctors.Include(x => x.User).FirstOrDefault(x => x.User.Id == user.Id);
+           
             if (cardPage == null)
             {
                 return NotFound();
             }
+            //ViewBag.DocId = cardPage.DoctorId;
+            //ViewBag.PatId = cardPage.PatientId;
             return View(cardPage);
         }
 

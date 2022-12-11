@@ -57,7 +57,6 @@
             <th>@Html.DisplayNameFor(model => model.FullName)</th>
             <th>@Html.DisplayNameFor(model => model.Age)</th>
             <th>@Html.DisplayNameFor(model => model.Sex)</th>
-            <th>@Html.DisplayNameFor(model => model.ITN)</th>
             <th>@Html.DisplayNameFor(model => model.Address)</th>
             <th></th>
         </tr>
@@ -69,7 +68,6 @@
                 <td> @Html.DisplayFor(modelItem => item.FullName) </td>
                 <td>@Html.DisplayFor(modelItem => item.Age)</td>
                 <td>@Html.DisplayFor(modelItem => item.Sex)</td>
-                <td>@Html.DisplayFor(modelItem => item.ITN)</td>
                 <td>@Html.DisplayFor(modelItem => item.Address)</td>
                 @if (User.IsInRole(WC.Admin))
                 {

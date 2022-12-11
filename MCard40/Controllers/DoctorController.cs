@@ -6,6 +6,8 @@ using MCard40.Data.Context;
 using MCard40.Infrastucture.Services.Interfaces;
 using MCard40.Model.Identity;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
+using MCard40.Web.Areas.Identity.Data;
 //using X.PagedList;
 
 namespace MCard40.Web.Controllers
@@ -14,10 +16,15 @@ namespace MCard40.Web.Controllers
     {
         private readonly IDoctorService _service;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public DoctorController(IDoctorService service, IHttpContextAccessor httpContextAccessor)
+
+        private readonly MCard40DbContext _dbContext;
+        private readonly UserManager<MCardUser> _userManager;
+        public DoctorController(IDoctorService service, IHttpContextAccessor httpContextAccessor, MCard40DbContext dbContext, UserManager<MCardUser> userManager)
         {
             _service = service;
             _httpContextAccessor = httpContextAccessor;
+            _dbContext = dbContext;
+            _userManager = userManager;
         }
         public string? UserId => _httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
         // GET: Doctors
@@ -97,6 +104,5 @@ namespace MCard40.Web.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
-        
     }
 }

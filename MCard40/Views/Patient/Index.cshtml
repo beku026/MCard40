@@ -2,7 +2,7 @@
 @model IEnumerable<MCard40.Model.Entity.Patient>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Пациенты";
 }
 <style>
     .table {
@@ -72,15 +72,15 @@
                 @if (User.IsInRole(WC.Admin))
                 {
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary" >Edit</a>
-                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary" >Редактировать</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Детали</a>
                     </td>
                 }
                 else if (User.IsInRole(WC.Doctor))
                 {
                     <td>
-                        <a asp-action="PatientCard" asp-route-id="@item.Id" class="btn btn-sm btn-primary">MedCard</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
+                        <a asp-action="PatientCard" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Медкарта</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Детали</a>
                     </td>
                 }
             </tr>

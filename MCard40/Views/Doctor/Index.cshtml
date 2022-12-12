@@ -5,7 +5,7 @@
     ViewData["Title"] = "Поиск врача";
 }
 <style>
-    .styled-table {
+    .table {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
@@ -14,26 +14,26 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-        .styled-table thead tr {
+        .table thead tr {
             background-color: #009879;
             color: #ffffff;
             text-align: left;
         }
 
-        .styled-table th,
-        .styled-table td {
+        .table th,
+        .table td {
             padding: 8px 15px;
         }
 
-        .styled-table tbody tr {
+        .table tbody tr {
             border-bottom: 1px solid #dddddd;
         }
 
-            .styled-table tbody tr:nth-of-type(even) {
+            .table tbody tr:nth-of-type(even) {
                 background-color: #f3f3f3;
             }
 
-            .styled-table tbody tr:last-of-type {
+            .table tbody tr:last-of-type {
                 border-bottom: 2px solid #009879;
             }
 
@@ -48,7 +48,7 @@
     </p>
 }
 
-<table class="styled-table">
+<table class="table">
     <thead>
         <tr>
             @Html.ActionLink("Сортировка по ФИО : ", "Index", new {sortOrder = ViewBag.NameSortParm})
@@ -76,14 +76,14 @@
                 @if (User.IsInRole(WC.Admin))
                 {
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
-                        <a asp-action="Details" asp-route-id="@item.Id"class="btn btn-sm btn-info">Details</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Редактировать</a>
+                        <a asp-action="Details" asp-route-id="@item.Id"class="btn btn-sm btn-info">Детали</a>
                     </td>
                 }
                 else if (User.IsInRole(WC.Doctor))
                 {
                     <td>
-                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Детали</a>
                     </td>
                 }
             </tr>

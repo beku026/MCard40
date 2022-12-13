@@ -83,7 +83,10 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-12">
-                                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-success ">Редактировать</a>
+                                @if (User.IsInRole(WC.Admin))
+                                {
+                                    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-success ">Редактировать</a> 
+                                }
                                 <a asp-action="Index" class="btn btn-success">Назад</a>
                             </div>
                         </div>

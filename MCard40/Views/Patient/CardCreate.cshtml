@@ -1,6 +1,9 @@
 ﻿@model MCard40.Model.Entity.CardPage
 @using MCard40.Model.Enums
 
+@{
+    ViewData["Title"] = "Создать карту";
+}
 
 <link href='https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
 <link href='//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css' rel='stylesheet' type='text/css'>
@@ -111,7 +114,7 @@
                     </div>
                 </form>
             <div class='col-md-offset-4 col-md-3'>
-                <a asp-action="Index" class=" btn-lg btn btn-success">Back to List</a>
+                <a asp-action="Index" class=" btn-lg btn btn-success">Назад</a>
             </div>
             </div>
         </div>

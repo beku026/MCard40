@@ -1,0 +1,275 @@
+﻿@{
+    ViewData["Title"] = "Новости";
+}
+
+<!-- CSS Libraries -->@*
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">*@
+<link href="~/news/lib/slick/slick.css" rel="stylesheet">
+<link href="~/news/lib/slick/slick-theme.css" rel="stylesheet">
+
+<!-- Template Stylesheet -->
+<link href="~/news/css/style.css" rel="stylesheet">
+
+<!-- Single News Start-->
+<div class="single-news">
+    <div class="container" style="max-width:1000px !important">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="sn-container">
+                    <div class="sn-img">
+                        <img src="https://medcentr.biz/upload/iblock/97b/97bf78d2bd9dcfe8220a8ab39c175cda.jpg" width="825" height="425" />
+
+                    </div>
+                    <div class="sn-content">
+                        <h3 class="sn-title">За неделю заболеваемость ОРВИ в КР выросла на 30%</h3>
+                        <p>
+                            <strong> БИШКЕК, 12 окт.</strong> В Кыргызстане все больше детей заболевают ОРВИ. Инфекционная больница подключает дополнительные отделения, а департамент госсанэпиднадзора выявил случаи свиного гриппа.
+                        </p>
+                        <p>
+                            Все палаты инфекционной больницы переполнены. Пациентов размещают в коридорах.
+                        </p>
+                        <p>
+                            3 267 человек среди нынешних заболевших — дети до 14 лет (69,5 процента).Также, по данным Минздрава, в Кыргызстане выявили 34 случая «свиного» гриппа.
+                        </p>
+                        <p>
+                            Заражение ОРВИ может быть спровоцировано неустойчивой погодой (жара и резкое похолодание), что приводит к снижению защитных сил организма. В тоже время взрослые чаще переносят болезнь на ногах и при несоблюдении санитарно-гигиенических мер заражают членов семей.
+                        </p>
+                        <p>По данным Министерства здравоохранения Кыргызстана, пока процент непосещаемости детей в школах не превышает 5%. Если рост заболевших увеличится до 20%, то в школах, а также в детских садах введут карантин</p>
+                        <h4>Несколько простых способов уберечь себя от гриппа</h4>
+                        <p>
+                            Делайте прививки
+                            Ежегодная вакцинация от гриппа — это наиболее эффективный способ защититься от этой болезни и потенциальных серьезных осложнений.
+                        </p>
+                        <p>
+                            Регулярно мойте руки
+                            Чистые руки способствуют профилактике многих инфекций, включая грипп. Соблюдение гигиены рук — простой способ защитить ваше здоровье и здоровье членов вашей семьи.
+                        </p>
+                        <p>
+                            Не трогайте руками глаза, нос и рот
+                            Глаза, нос и рот — наиболее вероятный путь попадания вируса гриппа в организм.
+                        </p>
+                        <p>
+                            Избегайте тесных контактов с больными
+                            Грипп — заразное заболевание. Оно легко распространяется в местах большого скопления людей, например в общественном транспорте, учебных заведениях, домах престарелых и во время массовых мероприятий
+                        </p>
+                    </div>
+                </div>
+                <div class="sn-related">
+                    <h2>Связанные новости</h2>
+                    <div class="row sn-slider">
+                        <div class="col-md-4">
+                            <div class="sn-img">
+                                <img src="https://focus.ua/static/storage/thumbs/1200x630/4/6d/3b699a23-b85602de92fefe5e2275fffa6b31b6d4.jpg?v=7591_1" width="210" height="126" />
+                                <div class="sn-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageThird">Исцелился мужчина болевший ВИЧ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="sn-img">
+                                <img src="https://medcentr.biz/upload/iblock/97b/97bf78d2bd9dcfe8220a8ab39c175cda.jpg" width="210" height="126" />
+                                <div class="sn-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFirst">В КР всё больше заразившихся орви</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="sn-img">
+                                <img src="https://24.kg/files/media/265/265048.jpg" width="210" height="126" />
+                                <div class="sn-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFifth">10 новых случаев COVID в КР</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="sn-img">
+                                <img src="https://bishkek24.kg/wp-content/uploads/2022/12/dyson-zone-razrabotany-dlya-ochishhaya-vozduh..jpg" width="210" height="126" />
+                                <div class="sn-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFourth">Чистый воздух - это роскошь</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="sidebar-widget">
+                        <h2 class="sw-title">Другие новости из области медицины</h2>
+                        <div class="news-list">
+                            <div class="nl-item">
+                                <div class="nl-img">
+                                    <img src="https://medcentr.biz/upload/iblock/97b/97bf78d2bd9dcfe8220a8ab39c175cda.jpg" width="100" height="63" />
+                                </div>
+                                <div class="nl-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageSecond">За неделю заболеваемость ОРВИ в КР выросла на 30%</a>
+                                </div>
+                            </div>
+                            <div class="nl-item">
+                                <div class="nl-img">
+                                    <img src="https://focus.ua/static/storage/thumbs/1200x630/4/6d/3b699a23-b85602de92fefe5e2275fffa6b31b6d4.jpg?v=7591_1" width="100" height="63" />
+                                </div>
+                                <div class="nl-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageThird">Исцелился мужчина болевший ВИЧ</a>
+                                </div>
+                            </div>
+                            <div class="nl-item">
+                                <div class="nl-img">
+                                    <img src="https://bishkek24.kg/wp-content/uploads/2022/12/dyson-zone-razrabotany-dlya-ochishhaya-vozduh..jpg" width="100" height="63" />
+                                </div>
+                                <div class="nl-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFourth">Dyson выпустит наушники с функцией очистки воздуха</a>
+                                </div>
+                            </div>
+                            <div class="nl-item">
+                                <div class="nl-img">
+                                    <img src="https://24.kg/files/media/265/265048.jpg" width="100" height="63" />
+                                </div>
+                                <div class="nl-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFifth">10 новых случаев COVID в КР</a>
+                                </div>
+                            </div>
+                            <div class="nl-item">
+                                <div class="nl-img">
+                                    <img src="https://argumenti.kg/uploads/posts/2020-11/160662444216677.jpeg" width="100" height="63" />
+                                </div>
+                                <div class="nl-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFirst">Введение карантина из-за роста ОРВИ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <div class="image">
+                            <p style="color: black; margin-bottom: -9px ">ЮРФА объявляет 70% скидки на все обследования для пожилых людей </p>
+                            <a href=""><img src="https://static8.depositphotos.com/1033181/859/i/600/depositphotos_8599902-stock-photo-percentage-as-symbol-of-shopping.jpg" alt="sale" width="250" height="200"></a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <div class="tab-news">
+                            <ul class="nav nav-pills nav-justified">
+
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="pill" href="#popular">Популярные</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="pill" href="#latest">Последние</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div id="popular" class="container tab-pane active">
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://bishkek24.kg/wp-content/uploads/2022/12/dyson-zone-razrabotany-dlya-ochishhaya-vozduh..jpg" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFourth">Dyson выпустит наушники с функцией очистки воздуха</a>
+                                        </div>
+                                    </div>
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://focus.ua/static/storage/thumbs/1200x630/4/6d/3b699a23-b85602de92fefe5e2275fffa6b31b6d4.jpg?v=7591_1" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageThird">Исцелился мужчина болевший ВИЧ</a>
+                                        </div>
+                                    </div>
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://argumenti.kg/uploads/posts/2020-11/160662444216677.jpeg" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageSecond">Введение карантина из-за роста ОРВИ</a>
+                                        </div>
+                                    </div>
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://medcentr.biz/upload/iblock/97b/97bf78d2bd9dcfe8220a8ab39c175cda.jpg" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageSecond">За неделю заболеваемость ОРВИ в КР выросла на 30%</a>
+                                        </div>
+                                    </div>
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://24.kg/files/media/265/265048.jpg" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFifth">10 новых случаев COVID-19 по всему Кыргызстану</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="latest" class="container tab-pane fade">
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://www.ktrk.kg/img/thumbnail/745851670497916_big.jpg" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFirst">В КР всё больше заразившихся ОРВИ</a>
+
+                                        </div>
+                                    </div>
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://medcentr.biz/upload/iblock/97b/97bf78d2bd9dcfe8220a8ab39c175cda.jpg" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageSecond">За неделю заболеваемость ОРВИ в КР выросла на 30%</a>
+                                        </div>
+                                    </div>
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://focus.ua/static/storage/thumbs/1200x630/4/6d/3b699a23-b85602de92fefe5e2275fffa6b31b6d4.jpg?v=7591_1" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageThird">Исцелился мужчина болевший ВИЧ</a>
+                                        </div>
+                                    </div>
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://24.kg/files/media/265/265048.jpg" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFifth">10 новых случаев COVID в КР</a>
+                                        </div>
+                                    </div>
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://bishkek24.kg/wp-content/uploads/2022/12/dyson-zone-razrabotany-dlya-ochishhaya-vozduh..jpg" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFourth">Dyson выпустит наушники с функцией очистки воздуха</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <div class="image">
+                            <a href=""><img src="~/image/MCard40.png" alt="Image"></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Single News End-->
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="~/news/lib/easing/easing.min.js"></script>
+<script src="~/news/lib/slick/slick.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="~/news/js/main.js"></script>

@@ -39,7 +39,7 @@ public class Patient : IEntity<int>
 
     /// Место жительства
     [Required(ErrorMessage = "Обязательно укажите место жительства")]
-    [Display(Name = "Адресс")]
+    [Display(Name = "Адрес")]
     public string Address { get; set; }
 
     ///Группы крови

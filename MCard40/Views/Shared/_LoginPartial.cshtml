@@ -8,11 +8,11 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
-            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" style="padding: 0.5rem 1rem !important">@UserManager.GetUserName(User)! </a>
+            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" style="padding: 0.5rem 1rem !important;">@UserManager.GetUserName(User)! </a>
     </li>
     <li class="nav-item">
         <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Выйти</button>
+                <button id="logout" type="submit" class="nav-link btn btn-link text-dark" style=" background: transparent !important; border:0 !important">Выйти</button>
         </form>
     </li>
 }

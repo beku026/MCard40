@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Главная";
 }
 <link rel="stylesheet" href="~/css/news.css" asp-append-version="true" />
 
@@ -7,18 +7,9 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
 <link rel="stylesheet" href="~/css/Otziv.css" asp-append-version="true" />
 
-<link rel="stylesheet" href="~/about/css/layout.css" asp-append-version="true" />
-<link rel="stylesheet" href="~/about/css/layout-rtl.css" asp-append-version="true" />
 <link rel="stylesheet" href="~/about/css/animate.css" asp-append-version="true" />
-
- <!-- GLOBAL MANDATORY STYLES -->
-        <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
-        <link href="vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-
         <!-- PAGE LEVEL PLUGIN STYLES -->
 <link href="~/about/css/animate.css" rel="stylesheet">
-<link href="~/about/vendor/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
 
         <!-- THEME STYLES -->
 <link href="~/about/css/layout.min.css" rel="stylesheet" type="text/css" />
@@ -201,14 +192,15 @@
             <img src="https://www.ktrk.kg/img/thumbnail/745851670497916_big.jpg" />
         </div>
         <div class="info">
-            <h2>Зафиксирован самый опасный вид гриппа </h2>
+            <h2>Коронавирус в прошлом? Нужно ли бояться его? </h2>
             <div class="info-text">
                 <p style="color:#505050">
-                    В КР за весь эпидемиологический сезон зарегистрировано 34 случаев <strong>свинного гриппа</strong>
+                    За одну неделю по всему Кыргызстану выявили 10 новых случаев covid
                 </p>
             </div>
             <div class="button-wrap">
-                <a class="atuin-btn" href="#link">Подробнее</a>
+                <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFifth" class="atuin-btn">Подробнее</a>
+
             </div>
         </div>
     </article>
@@ -220,10 +212,10 @@
         <div class="info">
             <h2>В КР все больше заразившихся ОРВИ</h2>
             <div class="info-text">
-                <p style="color:#505050">Навзана основая причина роста и возростной уровень заразившихся</p>
+                <p style="color:#505050">Названа его основая причина роста и возростной уровень заразившихся</p>
             </div>
             <div class="button-wrap">
-                <a class="atuin-btn" href="#link">Подробнее</a>
+                <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFirst" class="atuin-btn">Подробнее</a>
             </div>
         </div>
     </article>
@@ -238,7 +230,7 @@
                 <p style="color:#505050">В Калифорнии от ВИЧ-инфекции полностью вылечили четвертого в мире пациента</p>
             </div>
             <div class="button-wrap">
-                <a class="atuin-btn" href="#link">Подробнее</a>
+                <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageThird" class="atuin-btn">Подробнее</a>
             </div>
         </div>
     </article>
@@ -253,7 +245,8 @@
                 <p style="color:#505050">Dyson выпустит беспроводные наушники с функцией очистки воздуха</p>
             </div>
             <div class="button-wrap">
-                <a class="atuin-btn" href="#link">Подробнее</a>
+                <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFourth" class="atuin-btn">Подробнее</a>
+
             </div>
         </div>
     </article>

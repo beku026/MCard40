@@ -1,0 +1,265 @@
+﻿@{
+    ViewData["Title"] = "Новости";
+}
+
+<!-- CSS Libraries -->@*
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">*@
+<link href="~/news/lib/slick/slick.css" rel="stylesheet">
+<link href="~/news/lib/slick/slick-theme.css" rel="stylesheet">
+
+<!-- Template Stylesheet -->
+<link href="~/news/css/style.css" rel="stylesheet">
+
+<!-- Single News Start-->
+<div class="single-news">
+    <div class="container" style="max-width:1000px !important">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="sn-container">
+                    <div class="sn-img">
+                        <img src="https://bishkek24.kg/wp-content/uploads/2022/12/dyson-zone-razrabotany-dlya-ochishhaya-vozduh..jpg" width="825" height="425" />
+                    </div>
+                    <div class="sn-content">
+                        <h3 class="sn-title">Dyson выпустит наушники с функцией очистки воздуха</h3>
+                        <p>
+                            Dyson в январе выпустит беспроводные наушники Zone с функцией очистки воздуха за $949
+                        </p>
+                        <p>Необычное сочетание свойств для наушников компания Dyson анонсировала ещё в марте этого года, пообещав наделить накладные беспроводные наушники способностью очищать воздух для пользователя при наличии специального аксессуара. 
+                            Сейчас стало известно, что необычные наушники Dyson Zone поступят в продажу в следующем месяце в Китае, а до США доберутся в марте по рекомендованной цене $949.</p>
+                        <p>
+                            Наушники беспроводные, имеют 11 микрофонов и 40-миллиметровые неодимовые динамики, предлагают активное шумоподавление (до 38 децибел) и до 50 часов автономной работы.
+                        </p>
+                        <p>
+                            Как отмечает производитель, Dyson Zone разработаны для решения двойной проблемы — городского шума и загрязнения воздуха. Наушники обеспечивают 4 часа автономной работы, одновременно воспроизводя музыку и очищая воздух.
+                        </p>
+                        <p>
+                            Dyson обещает, что электростатические фильтры улавливают 99 процентов частиц размером до 0,1 микрона, а K-Carbon фильтры улавливают газы, загрязняющие городской воздух, включая NO2 и SO2.
+                        </p>
+                        <p>
+                            Компания планирует принимать предварительные заказы на Dyson Zone в США с марта 2023 года. Предлагаемая розничная цена составляет $949.
+                        </p>
+                        <p>Строго говоря, на борьбу с бактериями и вирусами эти наушники не рассчитаны, но разработчики хотя бы надеются, что они позволят улучшить качество жизни горожан.
+                            В следующем квартале наушники Dyson Zone появятся не только в Китае и США, но и Сингапуре, Великобритании и Гонконге.</p>
+                    </div>
+                </div>
+                <div class="sn-related">
+                    <h2>Связанные новости</h2>
+                    <div class="row sn-slider">
+                        <div class="col-md-4">
+                            <div class="sn-img">
+                                <img src="https://medcentr.biz/upload/iblock/97b/97bf78d2bd9dcfe8220a8ab39c175cda.jpg" width="210" height="126" />
+                                <div class="sn-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageSecond">В КР всё больше заразившихся ОРВИ</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="sn-img">
+                                <img src="https://focus.ua/static/storage/thumbs/1200x630/4/6d/3b699a23-b85602de92fefe5e2275fffa6b31b6d4.jpg?v=7591_1" width="210" height="126" />
+                                <div class="sn-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageThird">Исцелился мужчина болевший ВИЧ</a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="sn-img">
+                                <img src="https://bishkek24.kg/wp-content/uploads/2022/12/dyson-zone-razrabotany-dlya-ochishhaya-vozduh..jpg" width="210" height="126" />
+                                <div class="sn-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFourth">Dyson выпустит наушники с функцией очистки воздуха</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="sn-img">
+                                <img src="https://24.kg/files/media/265/265048.jpg" width="210" height="126" />
+                                <div class="sn-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFifth">10 новых случаев COVID в КР</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="sidebar-widget">
+                        <h2 class="sw-title">Другие новости из области медицины</h2>
+                        <div class="news-list">
+                            <div class="nl-item">
+                                <div class="nl-img">
+                                    <img src="https://medcentr.biz/upload/iblock/97b/97bf78d2bd9dcfe8220a8ab39c175cda.jpg" width="100" height="63" />
+                                </div>
+                                <div class="nl-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageSecond">За неделю заболеваемость ОРВИ в КР выросла на 30%</a>
+                                </div>
+                            </div>
+                            <div class="nl-item">
+                                <div class="nl-img">
+                                    <img src="https://focus.ua/static/storage/thumbs/1200x630/4/6d/3b699a23-b85602de92fefe5e2275fffa6b31b6d4.jpg?v=7591_1" width="100" height="63" />
+                                </div>
+                                <div class="nl-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageThird">Исцелился мужчина болевший ВИЧ</a>
+                                </div>
+                            </div>
+                            <div class="nl-item">
+                                <div class="nl-img">
+                                    <img src="https://bishkek24.kg/wp-content/uploads/2022/12/dyson-zone-razrabotany-dlya-ochishhaya-vozduh..jpg" width="100" height="63" />
+                                </div>
+                                <div class="nl-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFourth">Dyson выпустит наушники с функцией очистки воздуха</a>
+                                </div>
+                            </div>
+                            <div class="nl-item">
+                                <div class="nl-img">
+                                    <img src="https://24.kg/files/media/265/265048.jpg" width="100" height="63" />
+                                </div>
+                                <div class="nl-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFifth">10 новых случаев COVID в КР</a>
+                                </div>
+                            </div>
+                            <div class="nl-item">
+                                <div class="nl-img">
+                                    <img src="https://argumenti.kg/uploads/posts/2020-11/160662444216677.jpeg" width="100" height="63" />
+                                </div>
+                                <div class="nl-title">
+                                    <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFirst">Введение карантина из-за роста ОРВИ</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <div class="image">
+                            <p style="color: black; margin-bottom: -9px ">ЮРФА объявляет 70% скидки на все обследования для пожилых людей </p>
+                            <a href=""><img src="https://static8.depositphotos.com/1033181/859/i/600/depositphotos_8599902-stock-photo-percentage-as-symbol-of-shopping.jpg" alt="sale" width="250" height="200"></a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <div class="tab-news">
+                            <ul class="nav nav-pills nav-justified">
+
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="pill" href="#popular">Популярные</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="pill" href="#latest">Последние</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div id="popular" class="container tab-pane active">
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://bishkek24.kg/wp-content/uploads/2022/12/dyson-zone-razrabotany-dlya-ochishhaya-vozduh..jpg" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFourth">Dyson выпустит наушники с функцией очистки воздуха</a>
+
+                                        </div>
+                                    </div>
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://focus.ua/static/storage/thumbs/1200x630/4/6d/3b699a23-b85602de92fefe5e2275fffa6b31b6d4.jpg?v=7591_1" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageThird">Исцелился мужчина болевший ВИЧ</a>
+                                        </div>
+                                    </div>
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://argumenti.kg/uploads/posts/2020-11/160662444216677.jpeg" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFirst">Введение карантина из-за роста ОРВИ</a>
+                                        </div>
+                                    </div>
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://medcentr.biz/upload/iblock/97b/97bf78d2bd9dcfe8220a8ab39c175cda.jpg" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageSecond">За неделю заболеваемость ОРВИ в КР выросла на 30%</a>
+                                        </div>
+                                    </div>
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://24.kg/files/media/265/265048.jpg" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFifth">10 новых случаев COVID в КР</a>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+
+                                <div id="latest" class="container tab-pane fade">
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://www.ktrk.kg/img/thumbnail/745851670497916_big.jpg" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFirst">Введение карантина из-за роста ОРВИ</a>
+                                        </div>
+                                    </div>
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://medcentr.biz/upload/iblock/97b/97bf78d2bd9dcfe8220a8ab39c175cda.jpg" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageSecond">За неделю заболеваемость ОРВИ в КР выросла на 30%</a>
+
+                                        </div>
+                                    </div>
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://focus.ua/static/storage/thumbs/1200x630/4/6d/3b699a23-b85602de92fefe5e2275fffa6b31b6d4.jpg?v=7591_1" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageSecond">Исцелился мужчина болевший ВИЧ</a>
+                                        </div>
+                                    </div>
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://24.kg/files/media/265/265048.jpg" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFifth">10 новых случаев COVID в КР</a>
+                                        </div>
+                                    </div>
+                                    <div class="tn-news">
+                                        <div class="tn-img">
+                                            <img src="https://bishkek24.kg/wp-content/uploads/2022/12/dyson-zone-razrabotany-dlya-ochishhaya-vozduh..jpg" width="100" height="63" />
+                                        </div>
+                                        <div class="tn-title">
+                                            <a asp-area="" asp-controller="TypesDoctor" asp-action="NewsPageFourth">Dyson выпустит наушники с функцией очистки воздуха</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <div class="image">
+                            <a href=""><img src="~/image/MCard40.png" alt="Image"></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Single News End-->
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="~/news/lib/easing/easing.min.js"></script>
+<script src="~/news/lib/slick/slick.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="~/news/js/main.js"></script>

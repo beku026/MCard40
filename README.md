@@ -1,6 +1,13 @@
 <h1 align="center">Hi there, We are Beksultan, Chynara and Cholponai
 <img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
 <h1 align="center">MCard40</h1>
+<h3>A Readme file typically consists of the following sections:</h3><br>
+
+1.Project purpose/goal<br>
+2.Users<br>
+3.Technology stack<br>
+4.Guidelines for writing variables<br>
+5.Instructions on how to run the project<br>
 <h2>Project objective</h2>
 <p>There is often a need to urgently go to the hospital (polyclinic), but they do not accept without a medical card, and even if the doctor accepts the patient, he will write out instructions for treatment and medications on an ordinary piece of paper, which in turn is easy to lose. Or consider the case of honey loss. Cards, the entire medical history will be lost without the possibility of recovery, and you have to fill out and buy a new one (there have been cases when a person accumulated 10 cards). Also, with the next trip to the doctor, he had a different work schedule, and had to postpone the trip for days, weeks, or even abandon it altogether. That's why we decided to develop a website called "MedCard".
 <br>Our website will allow: <br>

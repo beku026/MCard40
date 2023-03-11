@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MCard40.Data\MCard40.Data.csproj" />
     <ProjectReference Include="..\MCard40.Model\MCard40.Model.csproj" />
   </ItemGroup>
 

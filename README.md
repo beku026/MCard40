@@ -54,13 +54,13 @@ The doctor will be able to quickly and conveniently find information about the p
 10.Register the admin.  <br>
 11.You are now logged in as the admin.  <br>
 12.You need to close the tab (red cross).  <br>
-Uncomment lines 141 to 148.  <br>
-Comment out line 139.  <br>
-Run the project.  <br>
-Log in as the admin. 
-In the sidebar, click "Create Doctor."  <br>
-Create the doctor.  <br>
-Log out of the admin.  <br>
-Log in as the doctor.  <br>
-Use other functions.  <br>
-If you want to create a patient, simply log out of the admin/doctor role and click on the registration button. Register as a patient.
+13.Uncomment lines 141 to 148.  <br>
+14.Comment out line 139.  <br>
+15.Run the project.  <br>
+16.Log in as the admin. <br>
+17.In the sidebar, click "Create Doctor."  <br>
+18.Create the doctor.  <br>
+19.Log out of the admin.  <br>
+20.Log in as the doctor.  <br>
+21.Use other functions.  <br>
+22.If you want to create a patient, simply log out of the admin/doctor role and click on the registration button. Register as a patient.

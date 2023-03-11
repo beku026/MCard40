@@ -17,7 +17,7 @@ public class Doctor : IEntity<int>
     /// <summary>
     /// ID
     /// </summary>
-    public int Id { get; set; }
+    public int Id { get; set; } 
 
     /// <summary>
     /// Фио

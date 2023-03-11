@@ -11,3 +11,4 @@ namespace MCard40.Model.Interfaces
         public T Id { get; set; }
     }
 }
+ 

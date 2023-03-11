@@ -18,7 +18,7 @@ public enum Disability
 
     [Display(Name = "I группа")]
     FirstDegreeDisability = 1,
-
+     
     [Display(Name = "II группа")]
     SecondDegreeDisability = 2,
 

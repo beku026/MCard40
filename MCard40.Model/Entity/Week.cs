@@ -17,6 +17,6 @@ public class Week : IEntity<int>
 
     /// Наименование дня недели
     public DayWeek DayWeeks { get; set; }
-    public virtual Doctor Doctor { get; set; }
+    public virtual Doctor Doctor { get; set; } 
     public virtual List<WorkDay> WorkDays { get; set; }
 }

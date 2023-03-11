@@ -14,7 +14,7 @@ namespace MCard40.Model.Interfaces
         public List<T> ReadAll();
         Task<T> GetByIdAsync(int id);
         T ReadById(TId? id);
-        IQueryable<T> Get(Func<T, bool> predicate = null);
+        IQueryable<T> Get(Func<T, bool> predicate = null); 
         T Delete(T model);
         public T DeleteById(TId id);
         public T Update(T entity);

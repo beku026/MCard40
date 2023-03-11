@@ -17,7 +17,7 @@ public enum DayWeek
     Monday = 0,
 
     [Display(Name = "Вторник")]
-    Tuesday = 1,
+    Tuesday = 1, 
 
     [Display(Name = "Среда")]
     Wednesday = 2,

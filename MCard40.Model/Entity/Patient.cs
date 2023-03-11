@@ -16,7 +16,7 @@ public class Patient : IEntity<int>
 
     /// ФИО 
     [Required(ErrorMessage = "Обязательно введите ФИО")]
-    [Display(Name = "ФИО")]
+    [Display(Name = "ФИО")] 
     public string FullName { get; set; }
 
     /// День рождения

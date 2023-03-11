@@ -13,7 +13,7 @@ namespace MCard40.Model.Enums;
 /// </summary>
 public enum Assessment
 {
-    [Display(Name = "Не важно")]
+    [Display(Name = "Не важно")] 
     FirstPositiveGroup = 0,
 
     [Display(Name = "Низкая")]

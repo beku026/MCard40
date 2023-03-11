@@ -16,7 +16,7 @@ public enum BloodGroup
     FirstPositiveGroup = 0,
 
     [Display(Name = "Вторая (А) положительная  II+")]
-    SecondPositiveGroup = 1,
+    SecondPositiveGroup = 1, 
 
     [Display(Name = "Третья (В) положительная  III+")]
     ThirdPositiveGroup = 2,

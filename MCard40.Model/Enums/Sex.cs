@@ -17,6 +17,6 @@ public enum Sex
     Man = 0,
 
     [Display(Name = "Женщина")]
-    Woman = 1,
+    Woman = 1, 
 }
 

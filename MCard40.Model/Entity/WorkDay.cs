@@ -14,7 +14,7 @@ public class WorkDay : IEntity<int>
     /// Конец
     public TimeSpan FinalWork { get; set; }
 
-    /// Тип занятости
+    /// Тип занятости 
     public Employment Employment_type { get; set; }
     public int WeekId { get; set; }
     public virtual Week Week { get; set; }

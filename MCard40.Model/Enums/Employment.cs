@@ -14,7 +14,7 @@ namespace MCard40.Model.Enums;
 public enum Employment
 {
     [Display(Name = "Прием пациентов")]
-    Reception = 0,
+    Reception = 0, 
 
     [Display(Name = "Обед")]
     Dinner = 1,

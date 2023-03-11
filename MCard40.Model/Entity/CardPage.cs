@@ -27,12 +27,12 @@ public class CardPage : IEntity<int>
     public string DiseaseInfo { get; set; }
 
     /// Лечение
-    [Required(ErrorMessage = "Обязательно укажите лечение")]
+    [Required(ErrorMessage = "Обязательно укажите лечение ")]
     [Display(Name = "Лечение")]
     public string Treatment { get; set; }
 
     /// Важность записи
-    [Required(ErrorMessage = "Обязательно поставьте оценку")]
+    [Required(ErrorMessage = "Обязательно поставьте оценку болезни")]
     [Display(Name = "Оценка врача")]
     public Assessment Assessment { get; set; }
 

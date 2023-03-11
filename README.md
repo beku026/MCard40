@@ -41,3 +41,26 @@ The doctor will be able to quickly and conveniently find information about the p
 - Correct: Extension
 + Incorrect: Extension
 ```
+<h2>How can I run the project ?</h2>
+1.Clone the project. <br>
+2.The project has 3 users: Admin, Doctor, Patient.  <br>
+3.Admin creates a doctor (registers them).  <br>
+4.Patient creates themselves (registers).  <br>
+5.To start, create an admin. You need to navigate to the following path: MCard40.Web - Areas - Identity - Pages - Account - Register.cshtml.cs   <br>
+6.Uncomment line 139.  <br>
+7.Comment out lines 141 to 148.  <br>
+8.Then run the project.  <br>
+9.Go to the registration page.  <br>
+10.Register the admin.  <br>
+11.You are now logged in as the admin.  <br>
+12.You need to close the tab (red cross).  <br>
+Uncomment lines 141 to 148.  <br>
+Comment out line 139.  <br>
+Run the project.  <br>
+Log in as the admin. 
+In the sidebar, click "Create Doctor."  <br>
+Create the doctor.  <br>
+Log out of the admin.  <br>
+Log in as the doctor.  <br>
+Use other functions.  <br>
+If you want to create a patient, simply log out of the admin/doctor role and click on the registration button. Register as a patient.

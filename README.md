@@ -1,4 +1,4 @@
-<h1 align="center">Hi there, We are Nurdin and Cholponai
+<h1 align="center">Hi there, We are Beksultan, Chynara and Cholponai
 <img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
 <h1 align="center">MCard40</h1>
 <h2>Project objective</h2>

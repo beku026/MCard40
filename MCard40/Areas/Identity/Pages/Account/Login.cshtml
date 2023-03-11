@@ -18,88 +18,110 @@
         box-shadow: 14px 14px 20px #646464, -14px -14px 20px white;
     }
 
-        .form-container .form-icon {
-            color: #32CD32;
-            font-size: 55px;
-            text-align: center;
-            line-height: 100px;
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 15px;
-            border-radius: 50px;
-            box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px #fff;
-        }
+    .max_width {
+        margin: 0 auto;
+        width: 500px;
+    }
 
-        .form-container .title {
-            color: #32CD32;
-            font-size: 25px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-align: center;
-            margin: 0 0 20px;
-        }
+    .login-button {
+        margin-top: 30px;
+    }
 
-        .form-container .form-horizontal .form-group {
-            margin: 0 0 25px 0;
-        }
+    .text {
+        text-align: center;
+    }
 
-            .form-container .form-horizontal .form-group label {
-                font-size: 15px;
-                font-weight: 600;
-                text-transform: uppercase;
-            }
+    .form-check-input {
+        margin-left: -37px;
+    }
 
-        .form-container .form-horizontal .form-control {
-            color: #333;
-            background: #ecf0f3;
+    .form-label {
+        margin-bottom: 20px;
+        padding-left: 40px
+    }
+
+    .form-container .form-icon {
+        color: #32CD32;
+        font-size: 55px;
+        text-align: center;
+        line-height: 100px;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 15px;
+        border-radius: 50px;
+        box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px #fff;
+    }
+
+    .form-container .title {
+        color: #32CD32;
+        font-size: 25px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: center;
+        margin: 0 0 20px;
+    }
+
+    .form-container .form-horizontal .form-group {
+        margin: 0 0 25px 0;
+    }
+
+        .form-container .form-horizontal .form-group label {
             font-size: 15px;
-            height: 50px;
-            padding: 20px;
-            letter-spacing: 1px;
-            border: none;
-            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+    .form-container .form-horizontal .form-control {
+        color: #333;
+        background: #ecf0f3;
+        font-size: 15px;
+        height: 50px;
+        padding: 20px;
+        letter-spacing: 1px;
+        border: none;
+        border-radius: 50px;
+        box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px #fff;
+        display: inline-block;
+        transition: all 0.3s ease 0s;
+    }
+
+        .form-container .form-horizontal .form-control:focus {
             box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px #fff;
-            display: inline-block;
-            transition: all 0.3s ease 0s;
+            outline: none;
         }
 
-            .form-container .form-horizontal .form-control:focus {
-                box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px #fff;
-                outline: none;
-            }
-
-            .form-container .form-horizontal .form-control::placeholder {
-                color: #6DE66D;
-                font-size: 14px;
-            }
-
-        .form-container .form-horizontal .btn {
-            color: green;
-            background-color: #6DE66D;
-            font-size: 15px;
-            font-weight: bold;
-            text-transform: uppercase;
-            width: 100%;
-            padding: 12px 15px 11px;
-            border-radius: 20px;
-            box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px #fff;
-            border: none;
-            transition: all 0.5s ease 0s;
+        .form-container .form-horizontal .form-control::placeholder {
+            color: #6DE66D;
+            font-size: 14px;
         }
 
-            .form-container .form-horizontal .btn:hover,
-            .form-container .form-horizontal .btn:focus {
-                color: #fff;
-                letter-spacing: 3px;
-                box-shadow: none;
-                outline: none;
-            }
+    .form-container .form-horizontal .btn {
+        color: green;
+        background-color: #6DE66D;
+        font-size: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        width: 100%;
+        padding: 12px 15px 11px;
+        border-radius: 20px;
+        box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px #fff;
+        border: none;
+        transition: all 0.5s ease 0s;
+    }
+
+        .form-container .form-horizontal .btn:hover,
+        .form-container .form-horizontal .btn:focus {
+            color: #fff;
+            letter-spacing: 3px;
+            box-shadow: none;
+            outline: none;
+        }
 </style>
 
 <div class="container-fluid">
 
-    <div class="col-md-4 offset-md-4">
+    <div class="max_width">
         <div class="form-container">
             <div class="form-icon"><i class="fa fa-user"></i></div>
             <h3 class="title">Login</h3>
@@ -124,14 +146,14 @@
                     </div>
                 </div>
                 <button id="login-submit" type="submit" class="btn btn-default">Авторизоваться</button>
-                <div>
-                    <p style="font-size:16px !important;">
+                <div class="login-button">
+                    <p class="text" style="font-size:16px !important;">
                         <a id="forgot-password" asp-page="./ForgotPassword">Забыли свой пароль?</a>
                     </p>
-                    <p style="font-size:16px !important;">
+                    <p class="text" style="font-size:16px !important;">
                         <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Зарегистрируйтесь как новый пользователь</a>
                     </p>
-                    <p style="font-size:16px !important;">
+                    <p class="text" style="font-size:16px !important;">
                         <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Повторно отправьте подтверждение по электронной почте</a>
                     </p>
                 </div>

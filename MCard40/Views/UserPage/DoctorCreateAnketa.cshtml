@@ -20,6 +20,7 @@
 <style>
     .form-group {
         margin-bottom: 15px;
+        height: 100px;
     }
 
     label {
@@ -32,8 +33,12 @@
         padding-top: 3px;
     }
 
+    .selectpicker {
+        outline: none
+    }
+
     .form-control {
-        height: auto !important;
+        height: 38px !important;
         padding: 8px 12px !important;
         background-color: #C1FFC1 !important;
     }
@@ -61,32 +66,66 @@
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
     }
 
+    .btn-color {
+        height: 38px;
+        color: #fff !important;
+        width: 100%
+    }
+
+    .link {
+        color: #fff !important;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
     .main-form {
-        margin-top: 30px;
-        margin: 0 auto;
-        max-width: 450px;
-        padding: 10px 40px;
+        margin: 30px 0;
+        margin: 0 auto 40px;
+        padding: 50px 40px;
         background: #6DE66D;
         color: #F3F3F3;
         text-shadow: none;
         box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
     }
 
+    .form {
+        display: flex !important;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .form-left,
+    .form-rigth {
+        width: 100%
+    }
+
     span.input-group-addon i {
-        color: #c1ffc1;
+        color: black;
         font-size: 17px;
     }
 
-    .login-button {
-        margin-top: 5px;
+    .btns-block {
+        display: flex;
+        margin-top: 50px;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+        width: 100%;
     }
 </style>
 
 @*<div class="container">
 *@    <div class="row main-form">
         <form asp-action="DoctorCreateAnketa">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form">
 
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-left">
             <div class="form-group">
                 <label asp-for="FullName" class="control-label"></label>            
                 <div class="cols-sm-10">
@@ -105,9 +144,41 @@
                         <input asp-for="Age" class="form-control" />
                     </div>
                 </div>
-
             </div>
 
+            <div class="form-group">
+                <label asp-for="Address_home" class="control-label"></label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <input asp-for="Address_home" class="form-control" placeholder="Введите адрес вашего проживания" />
+                        <span asp-validation-for="Address_home" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Address_job" class="control-label"></label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <input asp-for="Address_job" class="form-control" placeholder="Введите адрес работы" />
+                        <span asp-validation-for="Address_job" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Post" for="post" class="cols-sm-2 control-label">Должность</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span asp-validation-for="Post" class="text-danger" class="input-group-addon"></span>
+                        <input asp-for="Post" type="text" class="form-control" name="post" id="post" placeholder="Введите должность" />
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+            <div class="form-rigth">
             <div class="form-group">
                 <label asp-for="Sex" class="cols-sm-2 control-label">Пол</label>
                 <div class="cols-sm-10" >
@@ -125,27 +196,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="form-group">
-                <label asp-for="Address_home" class="control-label"></label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <input asp-for="Address_home" class="form-control" placeholder="Введите адрес вашего проживания" />
-                <span asp-validation-for="Address_home" class="text-danger"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Post" for="post" class="cols-sm-2 control-label">Должность</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <span asp-validation-for="Post" class="text-danger" class="input-group-addon"></span>
-                        <input asp-for="Post" type="text" class="form-control" name="post" id="post" placeholder="Введите должность" />
-                    </div>
-                </div>
-            </div>
-
             <div class="form-group">
                 <label asp-for="Experience" for="exp" class="cols-sm-2 control-label">Опыт работы</label>
                 <div class="cols-sm-10">
@@ -155,17 +205,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="form-group">
-                <label asp-for="Address_job" class="control-label"></label>          
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <input asp-for="Address_job" class="form-control" placeholder="Введите адрес работы" />
-                <span asp-validation-for="Address_job" class="text-danger" ></span>
-                    </div>
-                </div>
-            </div>
-
             <div class="form-group">
                 <label asp-for="Degree" class="control-label"></label>   
                 <div class="cols-sm-10">
@@ -182,11 +221,14 @@
                 <span asp-validation-for="UserId" class="text-danger">@ViewBag.UserId</span>
             </div>
 
-            <div class="form-group ">
-@*                <a href="#" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a>
-                *@                        <input type="submit" value="Сохранить" class="btn btn-success btn-lg btn-block login-button" />
+            
+            <div class="btns-block">
+                <button type="submit" class="btn btn-success btn-color form-group">
+                     Сохранить
+                </button>
             </div>
-
+            </div>
+        </div>
         </form>
     </div>
 @*</div>

@@ -28,8 +28,31 @@
         margin: 10px;
     }
 
+
+    .control-label {
+        text-align: left !important;
+    }
+
     .datepicker-dropdown {
         z-index: 200 !important;
+    }
+
+    .btns {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .full-width {
+        width: 100% !important;
+    }
+
+    .btn-lenght {
+        width: 200px
+    }
+
+    .col-md-offset-2 {
+        margin-left: 141px;
     }
 
     .panel-body {
@@ -44,81 +67,64 @@
 
         font: 600 15px "Open Sans",Arial,sans-serif;
     }
+</style>
 
-   /* label.control-label {
-        font-weight: 600;
-        color: #777;
-    }*/
-    </style>
-
-    <div class='container'>
-        <div class='panel panel-success dialog-panel'>
-            <div class='panel-heading'>
-                <h5>Медицинская карта</h5>
-            </div>
-            <div class='panel-body'>
+<div class='container'>
+    <div class='panel panel-success dialog-panel'>
+        <div class='panel-heading'>
+            <h5>Медицинская карта</h5>
+        </div>
+        <div class='panel-body'>
             <form asp-action="CardCreate" class='form-horizontal' role='form'>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                  
-                   
-                    <div class='form-group'>
+                <div class='form-group'>
                     <label asp-for="Disease" class='control-label col-md-2 col-md-offset-2' for='id_email'></label>
-                        <div class='col-md-6'>
-                            <div class='form-group'>
-                                <div class='col-md-11'>
-                                <input asp-for="Disease" class='form-control' id='id_email' placeholder='Название болезни' type='text'>
-                                <span asp-validation-for="Disease" class="text-danger"></span>
-
-                                </div>
-                            </div>
-                    
+                    <div class='col-md-6'>
+                        <div class='full-width'>
+                            <input asp-for="Disease" class='form-control full-width' id='id_email' placeholder='Название болезни' type='text'>
+                            <span asp-validation-for="Disease" class="text-danger"></span>
                         </div>
                     </div>
-                  
-                   
-                  
-                    <div class='form-group'>
+                </div>
+                <div class='form-group'>
                     <label asp-for="DiseaseInfo" class='control-label col-md-2 col-md-offset-2' for='id_comments'></label>
-                        <div class='col-md-6'>
+                    <div class='col-md-6'>
                         <textarea asp-for="DiseaseInfo" class='form-control' id='id_comments' placeholder='Информация о болезни' rows='3'></textarea>
                         <span asp-validation-for="DiseaseInfo" class="text-danger"></span>
-
-                        </div>
                     </div>
-
+                </div>
                 <div class='form-group'>
                     <label asp-for="Treatment" class='control-label col-md-2 col-md-offset-2' for='id_comments'></label>
                     <div class='col-md-6'>
                         <textarea asp-for="Treatment" class='form-control' id='id_comments' placeholder='Лечение' rows='3'></textarea>
                         <span asp-validation-for="Treatment" class="text-danger"></span>
-
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label asp-for="Assessment" class="control-label  col-md-2 col-md-offset-2"></label>
-                    <select asp-for="Assessment" class="form-control" asp-items="Html.GetEnumSelectList<Assessment>()" style="height:34px !important; width: 485px !important; margin-left:357px !important;"></select>
-                    <span asp-validation-for="Assessment" class="text-danger"></span>
+                    <div class="col-md-6 full-width">
+                        <select asp-for="Assessment" class="form-control" asp-items="Html.GetEnumSelectList<Assessment>()" style="height:34px !important;"></select>
+                        <span asp-validation-for="Assessment" class="text-danger"></span>
+                    </div>
                 </div>
                 <div class="form-group" hidden="hidden">
                     <label asp-for="PatientId" class="control-label"></label>
                     <input asp-for="PatientId" class="form-control" value="@ViewBag.PatientId" />
                 </div>
-                    
+                <div class="btns">
                     <div class="form-group">
-                        <div class='col-md-offset-4 col-md-3'>
-
-                            <input type="submit" value="Create" class=" btn-lg btn btn-success" />
+                        <div class=''>
+                            <input type="submit" value="Сохранить" class="btn-lenght btn-lg btn btn-success" />
                         </div>
                     </div>
-                </form>
-            <div class='col-md-offset-4 col-md-3'>
-                <a asp-action="Index" class=" btn-lg btn btn-success">Назад</a>
-            </div>
-            </div>
+                    <div class=''>
+                        <a asp-action="Index" class="btn-lenght btn-lg btn btn-success">Назад</a>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
 @section Scripts {
     @{

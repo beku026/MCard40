@@ -17,9 +17,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
 
 
+
 <style>
     .form-group {
         margin-bottom: 15px;
+        height: 100px;
     }
 
     label {
@@ -32,8 +34,12 @@
         padding-top: 3px;
     }
 
+    .selectpicker {
+        outline: none
+    }
+
     .form-control {
-        height: auto !important;
+        height: 38px !important;
         padding: 8px 12px !important;
         background-color: #C1FFC1 !important;
     }
@@ -61,31 +67,65 @@
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
     }
 
+    .btn-color {
+        height: 38px;
+        color: #fff !important;
+        width: 100%
+    }
+
+    .link {
+        color: #fff !important;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
     .main-form {
-        margin-top: 30px;
-        margin: 0 auto;
-        max-width: 450px;
-        padding: 10px 40px;
+        margin: 30px 0;
+        margin: 0 auto 40px;
+        padding: 50px 40px;
         background: #6DE66D;
         color: #F3F3F3;
         text-shadow: none;
         box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
     }
 
+    .form {
+        display: flex !important;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .form-left,
+    .form-rigth {
+        width: 100%
+    }
+
     span.input-group-addon i {
-        color: #c1ffc1;
+        color: black;
         font-size: 17px;
     }
 
-    .login-button {
-        margin-top: 5px;
+    .btns-block {
+        display: flex;
+        margin-top: 50px;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+        width: 100%;
     }
 </style>
 
 <div class="row main-form">
     <form asp-action="PatientAnketaEdit">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form">
 
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-left">
         <div class="form-group">
             <label asp-for="FullName" class="control-label"></label>
             <div class="cols-sm-10">
@@ -124,7 +164,9 @@
                 </div>
             </div>
         </div>
+            </div>
 
+            <div class="form-rigth">
         <div class="form-group">
             <label asp-for="Address" class="control-label"></label>
             <div class="cols-sm-10">
@@ -134,7 +176,6 @@
                 </div>
             </div>
         </div>
-
         <div class="form-group">
             <label asp-for="BloodGroup" class="cols-sm-2 control-label">Группа крови</label>
             <div class="cols-sm-10">
@@ -157,10 +198,13 @@
             <span asp-validation-for="UserId" class="text-danger">@ViewBag.UserId</span>
         </div>
 
-        <div class="form-group ">
-            <input type="submit" value="Сохранить" class="btn btn-success btn-lg btn-block login-button" />
+                <div class="btns-block">
+                    <button type="submit" class="btn btn-success btn-color form-group">
+                        Сохранить
+                    </button>
+                </div>
+            </div>
         </div>
-
     </form>
 </div>
 

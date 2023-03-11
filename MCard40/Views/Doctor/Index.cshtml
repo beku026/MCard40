@@ -5,7 +5,7 @@
     ViewData["Title"] = "Поиск врача";
 }
 <style>
-    .table {
+.table {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
@@ -14,28 +14,34 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-        .table thead tr {
-            background-color: #009879;
-            color: #ffffff;
-            text-align: left;
-        }
+.table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
 
-        .table th,
-        .table td {
-            padding: 8px 15px;
-        }
+.table th,
+.table td {
+    padding: 8px 15px;
+}
 
-        .table tbody tr {
-            border-bottom: 1px solid #dddddd;
-        }
+.table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
 
-            .table tbody tr:nth-of-type(even) {
-                background-color: #f3f3f3;
-            }
+.table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
 
-            .table tbody tr:last-of-type {
-                border-bottom: 2px solid #009879;
-            }
+.table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+#SearchString {
+    border-radius: 4px;
+    border: 1px solid black;
+    width: 260px;
+}
 
 </style>
 <h1>Поиск врача</h1>
@@ -44,7 +50,7 @@
 {
     <p>
         Введите ФИО: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-        <input type="submit" value="Поиск" />
+        <input type="submit" value="Поиск" class="btn btn-md btn-success" />
     </p>
 }
 <a href="https://wa.me/+996551106880" class="btn btn-sm btn-success" style="

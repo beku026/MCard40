@@ -69,3 +69,12 @@ img {
         margin: 0;
         color: #505050;
     }
+
+
+@media(max-width: 880px) {
+.wrapp {
+    display: flex;
+    flex-direction: column;
+}
+
+}

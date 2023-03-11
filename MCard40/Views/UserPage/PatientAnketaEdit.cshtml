@@ -15,9 +15,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.5/js/bootstrap-select.min.js"></script>
-
-
-
 <style>
     .form-group {
         margin-bottom: 15px;
@@ -131,8 +128,8 @@
             <div class="cols-sm-10">
                 <div class="input-group">
                     <input asp-for="FullName" class="form-control" placeholder="Введите ФИО" />
-                    <span asp-validation-for="FullName" class="text-danger"></span>
                 </div>
+                <span asp-validation-for="FullName" class="text-danger"></span>
             </div>
         </div>
 
@@ -140,9 +137,9 @@
             <label asp-for="Age" class="cols-sm-2 control-label">Дата рождения</label>
             <div class="cols-sm-10">
                 <div class="input-group">
-                    <span asp-validation-for="Age" class="text-danger" class="input-group-addon"></span>
                     <input asp-for="Age" class="form-control" />
                 </div>
+                    <span asp-validation-for="Age" class="text-danger" class="input-group-addon"></span>
             </div>
 
         </div>
@@ -150,18 +147,17 @@
         <div class="form-group">
             <label asp-for="Sex" class="cols-sm-2 control-label">Пол</label>
             <div class="cols-sm-10">
-                <span asp-validation-for="Sex" class="text-danger" class="input-group-addon"></span>
                 <select asp-for="Sex" asp-items="Html.GetEnumSelectList<Sex>()" class="selectpicker" data-style="btn-success" multiple data-max-options="1"></select>
             </div>
+            <span asp-validation-for="Sex" class="text-danger" class="input-group-addon"></span>
         </div>
-
         <div class="form-group">
             <label asp-for="ITN" class="control-label"></label>
             <div class="cols-sm-10">
                 <div class="input-group">
                     <input asp-for="ITN" class="form-control" placeholder="Введите ИНН" />
-                    <span asp-validation-for="ITN" class="text-danger"></span>
                 </div>
+                <span asp-validation-for="ITN" class="text-danger"></span>
             </div>
         </div>
             </div>
@@ -172,24 +168,24 @@
             <div class="cols-sm-10">
                 <div class="input-group">
                     <input asp-for="Address" class="form-control" placeholder="Введите адрес вашего проживания" />
-                    <span asp-validation-for="Address" class="text-danger"></span>
                 </div>
+                <span asp-validation-for="Address" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group">
             <label asp-for="BloodGroup" class="cols-sm-2 control-label">Группа крови</label>
             <div class="cols-sm-10">
-                <span asp-validation-for="BloodGroup" class="text-danger" class="input-group-addon"></span>
                 <select asp-for="BloodGroup" asp-items="Html.GetEnumSelectList<BloodGroup>()" class="selectpicker" data-style="btn-success" multiple data-max-options="1"></select>
             </div>
+            <span asp-validation-for="BloodGroup" class="text-danger" class="input-group-addon"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Disability" class="cols-sm-2 control-label">Инвалидность</label>
             <div class="cols-sm-10">
-                <span asp-validation-for="Disability" class="text-danger" class="input-group-addon"></span>
                 <select asp-for="Disability" asp-items="Html.GetEnumSelectList<Disability>()" class="selectpicker" data-style="btn-success" multiple data-max-options="1"></select>
             </div>
+            <span asp-validation-for="Disability" class="text-danger" class="input-group-addon"></span>
         </div>
 
         <div hidden="hidden" class="form-group">

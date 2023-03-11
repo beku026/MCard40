@@ -1,20 +1,5 @@
 ﻿@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
 
-/** {
-    font-family: Open Sans;
-}
-
-section {
-    width: 100%;
-    display: inline-block;
-    background: #333;
-    height: 50vh;
-    text-align: center;
-    font-size: 22px;
-    font-weight: 700;
-    text-decoration: underline;
-}
-*/
 .footer-distributed {
     background: #505050;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
@@ -22,8 +7,17 @@ section {
     width: 100%;
     text-align: left;
     font: bold 16px sans-serif;
-    padding: 50px 50px 20px 50px;
+    padding: 50px 150px 20px 150px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
+
+    .flex-block {
+        display:flex;
+        flex-wrap: wrap;
+        justify-content:space-between;
+    }
 
     .footer-distributed .footer-left,
     .footer-distributed .footer-center,
@@ -32,12 +26,7 @@ section {
         vertical-align: top;
     }
 
-    /* Footer left */
-
-    .footer-distributed .footer-left {
-        width: 40%;
-    }
-
+   
     /* The company logo */
 
     .footer-distributed h3 {
@@ -56,28 +45,27 @@ section {
         color: #ffffff;
         margin: 20px 0 12px;
         padding: 0;
+        display: grid;
     }
 
-        .footer-distributed .footer-links a {
-            display: inline-block;
-            line-height: 1.8;
-            font-weight: 400;
-            text-decoration: none;
-            color: inherit;
-        }
+    .footer-distributed .footer-links a {
+        display: inline-block;
+        line-height: 1.8;
+        font-weight: 400;
+        text-decoration: none;
+        color: inherit;
+    }
+
 
     .footer-distributed .footer-company-name {
-        color: #222;
+        color: #92999f;
         font-size: 14px;
         font-weight: normal;
+        text-align: center;
+        grid-column: 1 / 4;
         margin: 0;
     }
 
-    /* Footer Center */
-
-    .footer-distributed .footer-center {
-        width: 35%;
-    }
 
         .footer-distributed .footer-center i {
             background-color: #33383b;
@@ -118,7 +106,7 @@ section {
                 ;
             }
 
-    .footer-distributed .footer-links a:before {
+/*    .footer-distributed .footer-links a:before {
         content: "|";
         font-weight: 300;
         font-size: 20px;
@@ -126,7 +114,7 @@ section {
         color: #fff;
         display: inline-block;
         padding-right: 5px;
-    }
+    }*/
 
     .footer-distributed .footer-links .link-1:before {
         content: none;
@@ -179,6 +167,8 @@ section {
 
     .footer-distributed {
         font: bold 14px sans-serif;
+        /*grid-template-columns: repeat(2, 1fr);*/
+        padding: 30px
     }
 
         .footer-distributed .footer-left,

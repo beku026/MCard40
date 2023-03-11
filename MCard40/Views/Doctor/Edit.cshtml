@@ -7,71 +7,224 @@
 
 <h1>Редактировать</h1>
 
+<style>
+    .form-group {
+        margin-bottom: 15px;
+        height: 100px;
+    }
+
+    label {
+        margin-bottom: 15px;
+    }
+
+    input,
+    input::-webkit-input-placeholder {
+        font-size: 11px;
+        padding-top: 3px;
+    }
+
+    .selectpicker {
+        outline: none
+    }
+
+    .form-control {
+        height: 38px !important;
+        padding: 8px 12px !important;
+        background-color: #C1FFC1 !important;
+    }
+
+    .input-group {
+        box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21) !important;
+    }
+
+    #button {
+        border: 1px solid #ccc;
+        margin-top: 28px;
+        padding: 6px 12px;
+        color: #505050;
+        text-shadow: 0 1px #fff;
+        cursor: pointer;
+        border-radius: 3px 3px;
+        box-shadow: 0 1px #fff inset, 0 1px #ddd;
+        background: #c1ffc1;
+        background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));
+        background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+        background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+        background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+        background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
+    }
+
+    .btn-color {
+        height: 38px;
+        color: #fff !important;
+        width: 100%
+    }
+
+    .link {
+        color: #fff !important;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    .main-form {
+        margin: 30px 0;
+        margin: 0 auto 40px;
+        padding: 50px 40px;
+        background: #6DE66D;
+        color: #F3F3F3;
+        text-shadow: none;
+        box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+    }
+
+    .form {
+        display: flex !important;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .form-left,
+    .form-rigth {
+        width: 100%
+    }
+
+    span.input-group-addon i {
+        color: black;
+        font-size: 17px;
+    }
+
+    .btns-block {
+        display: flex;
+        margin-top: 50px;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+        width: 100%;
+    }
+</style>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+<div class="row main-form">
+   <form asp-action="Edit">
+       <div class="form">
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
+            <div class="form-left">
+                <div class="form-group">
+                    <label asp-for="FullName" class="control-label"></label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <input asp-for="FullName" class="form-control" />
+                        </div>
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+             
+                    </div>  
+                </div>
+                <div class="form-group">
+                    <label asp-for="Age" class="cols-sm-2 control-label">Дата рождения</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <input asp-for="Age" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Age" class="text-danger" class="input-group-addon"></span>
+                    </div>
+                </div>
             <div class="form-group">
-                <label asp-for="FullName" class="control-label"></label>
-                <input asp-for="FullName" class="form-control" />
-                <span asp-validation-for="FullName" class="text-danger"></span>
+                 <label asp-for="Address_home" class="control-label"></label>
+                <div class="cols-sm-10">
+                      <div class="input-group">
+                         <input asp-for="Address_home" class="form-control" />
+                       </div>
+                       <span asp-validation-for="Address_home" class="text-danger" ></span>
+                </div>       
+             </div>
+            <div class="form-group">
+                  <label asp-for="Address_job" class="control-label"></label>
+                  <div class="cols-sm-10">
+                        <div class="input-group">
+                            <input asp-for="Address_job" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Address_job" class="text-danger"></span>
+                  </div>      
             </div>
+                <div class="form-group">
+                    <label asp-for="Post" class="cols-sm-2 control-label"></label>
+                       <div class="cols-sm-10">
+                            <div class="input-group">
+                                 <input asp-for="Post" class="form-control" />
+                            </div>
+                        <span asp-validation-for="Post" class="text-danger" class="input-group-addon"></span>
+                        </div>     
+                </div>
+             </div>
+
+            <div class="form-rigth">
             <div class="form-group">
-                <label asp-for="Age" class="control-label"></label>
-                <input asp-for="Age" class="form-control" />
-                <span asp-validation-for="Age" class="text-danger"></span>
-            </div>
+                    <label asp-for="Sex" class="cols-sm-2 control-label"></label>
+                <div class="cols-sm-10">
+                        <select asp-for="Sex" asp-items="Html.GetEnumSelectList<Sex>()" style="width:100%"></select>
+                        <span asp-validation-for="Sex" class="text-danger" class="input-group-addon"></span>
+                </div> 
+             </div>
+
+                <div class="form-group">
+                     <label asp-for="ITN" class="control-label"></label>
+                    <div class="cols-sm-10">
+                         <div class="input-group">
+                             <input asp-for="ITN" class="form-control" />
+                        </div>
+                        <span asp-validation-for="ITN" class="text-danger"></span>
+                    </div> 
+                </div>
+           
+            
+              
+
+               
             <div class="form-group">
-                <label asp-for="Sex" class="control-label"></label>
-                <select asp-for="Sex" asp-items="Html.GetEnumSelectList<Sex>()"></select>
-                <span asp-validation-for="Sex" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ITN" class="control-label"></label>
-                <input asp-for="ITN" class="form-control" />
-                <span asp-validation-for="ITN" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address_home" class="control-label"></label>
-                <input asp-for="Address_home" class="form-control" />
-                <span asp-validation-for="Address_home" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Post" class="control-label"></label>
-                <input asp-for="Post" class="form-control" />
-                <span asp-validation-for="Post" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Experience" class="control-label"></label>
+                    <label asp-for="Experience" class="cols-sm-2  control-label"></label>
+            <div class="cols-sm-10">
+                        <div class="input-group">
                 <input asp-for="Experience" class="form-control" />
+             </div>
                 <span asp-validation-for="Experience" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address_job" class="control-label"></label>
-                <input asp-for="Address_job" class="form-control" />
-                <span asp-validation-for="Address_job" class="text-danger"></span>
-            </div>
+            </div> </div>
+          
             <div class="form-group">
                 <label asp-for="Degree" class="control-label"></label>
+            <div class="cols-sm-10">
+                        <div class="input-group">
                 <input asp-for="Degree" class="form-control" />
+              </div>
                 <span asp-validation-for="Degree" class="text-danger"></span>
-            </div>
+           </div>  </div>
+
             <div hidden="hidden" class="form-group">
                 <label asp-for="UserId" class="control-label"></label>
+            
                 <input asp-for="UserId" class="form-control" />
                 <span asp-validation-for="UserId" class="text-danger">@ViewBag.UserId</span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Сохранить" class="btn btn-primary" />
+                    <div class="btns-block">
+
+                    
+                    <button type="submit" class="btn btn-success btn-color form-group">
+                        Сохранить
+                    </button>
+                        <button class="btn btn-success btn-color">
+                            <a class="link" asp-action="Index">Назад</a>
+                        </button>
+                </div>
+            </div>
             </div>
         </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Назад</a>
+    
 </div>
 
 @section Scripts {

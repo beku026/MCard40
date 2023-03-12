@@ -140,7 +140,7 @@
                     <label asp-for="Sex" class="cols-sm-2 control-label"></label>
                     <div class="cols-sm-10">
                        @* <div class="input-group">*@
-                        <select asp-for="Sex" asp-items="Html.GetEnumSelectList<Sex>()" style="width:100%"></select>
+                        <select asp-for="Sex" asp-items="Html.GetEnumSelectList<Sex>()" style="width: 100%; height: 39px; background-color: #C1FFC1;"></select>
                         <span asp-validation-for="Sex" class="text-danger" class="input-group-addon"></span>
                        @* </div>*@
                     </div>
@@ -171,7 +171,7 @@
                     <label asp-for="BloodGroup" class="cols-sm-2 control-label"></label>
                     <div class="cols-sm-10">
                     @*    <div class="input-group">*@
-                        <select asp-for="BloodGroup" asp-items="Html.GetEnumSelectList<BloodGroup>()" style=" width:100%"></select>
+                        <select asp-for="BloodGroup" asp-items="Html.GetEnumSelectList<BloodGroup>()" style=" width:100%; height: 39px; background-color: #C1FFC1;"></select>
                         <span asp-validation-for="BloodGroup" class="text-danger" class="input-group-addon"></span>
                      @*   </div>*@
                     </div>
@@ -180,7 +180,7 @@
                     <label asp-for="Disability" class="cols-sm-2 control-label"></label>
                     <div class="cols-sm-10">
                     @*    <div class="input-group">*@
-                        <select asp-for="Disability" asp-items="Html.GetEnumSelectList<Disability>()"  style=" width:100%"></select>
+                        <select asp-for="Disability" asp-items="Html.GetEnumSelectList<Disability>()" style=" width:100%; width:100%; height: 39px;background-color: #C1FFC1; outline: none;"></select>
                         <span asp-validation-for="Disability" class="text-danger" class="input-group-addon"></span>
                     
                      @*   </div>*@

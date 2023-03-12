@@ -4,7 +4,16 @@
 @inject SignInManager<MCardUser> SignInManager
 @inject UserManager<MCardUser> UserManager
 
-<ul class="navbar-nav" style="margin-left: 70% !important;"   >
+<style>
+    .navbar-nav {
+        display: flex;
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: end;
+    }
+</style>
+
+<ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">

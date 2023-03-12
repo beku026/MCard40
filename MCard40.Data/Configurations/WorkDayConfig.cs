@@ -14,7 +14,7 @@ public class WorkDayConfig : IEntityTypeConfiguration<WorkDay>
     {
         builder.HasKey(i => i.Id);
 
-        builder.HasOne(u => u.Week)
+        builder.HasOne(u => u.Week) 
            .WithMany(c => c.WorkDays)
            .HasForeignKey(u => u.WeekId)
            .OnDelete(DeleteBehavior.Restrict);

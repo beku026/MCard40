@@ -15,7 +15,7 @@ namespace MCard40.Data.Repositories
     /// Репозиторий
     /// </summary>
     public class Repository<T, TId> : IRepository<T, TId>
-              where T : class,IEntity<TId>
+              where T : class,IEntity<TId> 
     {
         private readonly MCard40DbContext _context;
         public Repository(MCard40DbContext context)

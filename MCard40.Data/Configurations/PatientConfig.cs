@@ -6,7 +6,7 @@ namespace MCard40.Data.Configurations;
 public class PatientConfig : IEntityTypeConfiguration<Patient>
 {
     public void Configure(EntityTypeBuilder<Patient> builder)
-    {
+    { 
         builder.HasKey(i => i.Id);
 
         builder.Property(i => i.Id)

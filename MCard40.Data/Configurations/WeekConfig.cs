@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace MCard40.Data.Configurations;
 public class WeekConfig : IEntityTypeConfiguration<Week>
 {
-    public void Configure(EntityTypeBuilder<Week> builder)
+    public void Configure(EntityTypeBuilder<Week> builder) 
     {
         builder.HasKey(i => i.Id);
 

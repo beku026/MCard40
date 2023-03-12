@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MCard40.Data.Configurations;
 public class CardPageConfig : IEntityTypeConfiguration<CardPage>
-{
+{ 
     public void Configure(EntityTypeBuilder<CardPage> builder)
     {
         builder.HasKey(i => i.Id);

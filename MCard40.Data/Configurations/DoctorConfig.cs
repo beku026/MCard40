@@ -5,7 +5,7 @@ using MCard40.Model.Identity;
 
 namespace MCard40.Data.Configurations;
 public class DoctorConfig : IEntityTypeConfiguration<Doctor>
-{
+{ 
     public void Configure(EntityTypeBuilder<Doctor> builder)
     {
 

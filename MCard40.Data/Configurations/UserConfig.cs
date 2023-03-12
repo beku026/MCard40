@@ -9,7 +9,7 @@ public class UserConfig : IEntityTypeConfiguration<User>
     {
         builder.HasKey(i => i.Id);
 
-        builder.Property(i => i.Id)
+        builder.Property(i => i.Id) 
             .HasColumnType("nvarchar(250)")
             .IsRequired();
 

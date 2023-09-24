@@ -136,7 +136,7 @@ namespace MCard40.Web.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    //await _userManager.AddToRoleAsync(user, WC.Admin);
+                    // await _userManager.AddToRoleAsync(user, WC.Admin);
 
                     if (User.IsInRole(WC.Admin))
                     {

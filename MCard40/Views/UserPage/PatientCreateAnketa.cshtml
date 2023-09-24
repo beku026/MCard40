@@ -112,17 +112,153 @@
         margin-top: 50px;
         justify-content: space-between;
         gap: 20px;
+        color: black!important;
     }
 
     .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
         width: 100%;
+    }
+
+    .bootstrap-select.btn-group .dropdown-toggle .filter-option {
+        display: inline-block;
+        overflow: hidden;
+        width: 100%;
+        text-align: left;
+    }
+
+    .pull-left {
+        float: left !important;
+    }
+
+    .pull-left {
+        float: left;
+    }
+
+    .pull-left {
+        float: left !important;
+    }
+
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+    .btn:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+
+    [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+        cursor: pointer;
+    }
+
+    /*.btn-success {
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+    }*/
+
+    .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+/*
+    .btn-success {
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+    }
+*/
+    .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+/*
+    .btn-success {
+        color: #fff;
+        background-color: #28a745;
+        border-color: #28a745;
+    }*/
+
+    .btn {
+        display: inline-block;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border: 1px solid transparent;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 0.25rem;
+        transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+
+    .dropdown-toggle {
+        white-space: nowrap;
+    }
+
+    .btn-success {
+       background-color: #c0e1d0 !important;
+        background-color: #c0e1d0;
     }
 </style>
 
 <div class="row main-form">
     <form asp-action="PatientCreateAnketa">
         <div class="form">
-
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-left">
         <div class="form-group">
@@ -150,7 +286,7 @@
             <label asp-for="Sex" class="cols-sm-2 control-label">Пол</label>
             <div class="cols-sm-10">
                 <span asp-validation-for="Sex" class="text-danger" class="input-group-addon"></span>
-                        <select asp-for="Sex" asp-items="Html.GetEnumSelectList<Sex>()" class="selectpicker" multiple data-max-options="1" style="background: #3d6c61;"></select>
+                        <select asp-for="Sex" asp-items="Html.GetEnumSelectList<Sex>()" style="color: black; width: 100%; height: 39px; background-color: #c0e1d0"></select>
             </div>
         </div>
 
@@ -164,8 +300,6 @@
             </div>
         </div>
             </div>
-
-
             <div class="form-rigth">
         <div class="form-group">
             <label asp-for="Address" class="control-label"></label>
@@ -181,7 +315,7 @@
             <label asp-for="BloodGroup" class="cols-sm-2 control-label">Группа крови</label>
             <div class="cols-sm-10">
                 <span asp-validation-for="BloodGroup" class="text-danger" class="input-group-addon"></span>
-                <select asp-for="BloodGroup" asp-items="Html.GetEnumSelectList<BloodGroup>()" class="selectpicker" data-style="btn-success" multiple data-max-options="1"></select>
+                        <select asp-for="BloodGroup" asp-items="Html.GetEnumSelectList<BloodGroup>()" style="color: black; width: 100%; height: 39px; background-color: #c0e1d0"></select>
             </div>
         </div>
 
@@ -189,7 +323,7 @@
             <label asp-for="Disability" class="cols-sm-2 control-label">Инвалидность</label>
             <div class="cols-sm-10">
                 <span asp-validation-for="Disability" class="text-danger" class="input-group-addon"></span>
-                <select asp-for="Disability" asp-items="Html.GetEnumSelectList<Disability>()" class="selectpicker" data-style="btn-success" multiple data-max-options="1"></select>
+                        <select asp-for="Disability" asp-items="Html.GetEnumSelectList<Disability>()" class="selected" style="color: black; width: 100%; height: 39px; background-color: #c0e1d0"></select>
             </div>
         </div>
 
@@ -200,7 +334,7 @@
         </div>
 
                 <div class="btns-block">
-                    <button type="submit" class="btn btn-success btn-color form-group">
+                    <button type="submit" style="color: black !important; font-size: 15px !important;" class="btn btn-success btn-color form-group">
                         Сохранить
                     </button>
                 </div>
